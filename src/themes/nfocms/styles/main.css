@@ -1,0 +1,70 @@
+/*
+
+*/
+
+.w100      { width:100%; }
+.w99       { width:99%; }
+
+.appear    { display:block; }
+.disappear { display:none; }
+
+.no-decor  { text-decoration: none; }
+
+.padhor3   { padding-left:3px;padding-right:3px; }
+.padhor5   { padding-left:5px;padding-right:5px; }
+.padhor10  { padding-left:10px;padding-right:10px; }
+
+#picarea   { position:absolute; top:120px; left:650px; }
+#timectrl  { position:absolute; top:100px; left:650px; }
+
+#response { display:none; }
+#pgsbar   { visibility:hidden;position:absolute;right:8%;top:20px; padding:2px 2px 2px 2px; width:auto; height:31px; border: 1px #0f0 dotted; background-color:#eee;}
+
+/* color sugar:  */
+.bg-f { background:#fff; }
+.bg-e { background:#eee; }
+.bg-c { background:#ccc; }
+.bg-a { background:#aaa; }
+.bg-8 { background:#888; }
+.bg-6 { background:#666; }
+.bg-4 { background:#444; }
+.bg-2 { background:#222; }
+.bg-0 { background:#000; }
+
+.fg-f { color:#fff; }
+.fg-e { color:#eee; }
+.fg-c { color:#ccc; }
+.fg-a { color:#aaa; }
+.fg-8 { color:#888; }
+.fg-6 { color:#666; }
+.fg-4 { color:#444; }
+.fg-2 { color:#222; }
+.fg-0 { color:#000; }
+
+
+/* google balloon tip */
+.google-src-text        { display: none !important }
+.google-src-active-text { display: block !important; color:black !important; }
+
+/* balloon styles */
+   .title        { padding: 5px 15px }
+   .body         { padding: 15px 15px 10px; vertical-align:top }
+   .options      { padding: 5px 0 0 0; font: 13px Arial; }
+    h1 { font: 26px Times, Tahoma, Verdana; padding:0; margin:0 }
+    body { background: #ffffff }
+    body, td { font-family: Times, Tahoma, Verdana }
+    td { vertical-align: top; }
+   .about { font: 12px Arial, sans; padding:2px }
+   .copyright { font: 12px Arial, sans; padding:2px }
+
+   .blockbar { margin:20px 0; padding:5px; font-size:90%;
+               background:#ff8060; color:#ffffff }
+
+/* nifty corners easy */
+b.rtop, b.rbottom{display:block;background: #FFF}
+b.rtop b, b.rbottom b{display:block;height: 1px;
+    overflow: hidden; background: #9BD1FA}
+b.r1{margin: 0 5px}
+b.r2{margin: 0 3px}
+b.r3{margin: 0 2px}
+b.rtop b.r4, b.rbottom b.r4{margin: 0 1px;height: 2px}

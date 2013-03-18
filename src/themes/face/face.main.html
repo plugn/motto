@@ -1,0 +1,573 @@
+{{TPL:Main}}
+<table class="table w100">
+    <tr>
+      <td bgcolor="#ffffff" valign="top" style="vertical-align:top;">
+{{HeadingBar}}
+{{WeekNav}}
+      </td>
+      <td style="vertical-align:top;"> </td>
+    </tr>
+    <tr><td style="96%;vertical-align:top;">
+{{CONTENT}}
+    </td><td style="vertical-align:top;"> </td>
+    <!--  <td style="width:30%;vertical-align:top;"> </td> -->
+    </tr>
+</table>
+
+
+{{/TPL:Main}}
+
+{{TPL:WeekNav}}
+              <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+                <tbody><tr>
+                  <td bgcolor="#cccccc">
+                    <table border="0" cellpadding="4" cellspacing="1" width="100%">
+                            <tbody>
+                      <tr align="center">
+{{_}}
+
+                      </tr>
+                            </tbody>
+                    </table>
+
+                  </td>
+                </tr>
+              </tbody></table>
+
+{{/TPL:WeekNav}}
+
+{{TPL:WeekNav_Item}}
+<td{{*tdMisc}}><a href="{{/}}{{*href}}">{{wdTn}}. {{dtTn}}</a></td>
+{{/TPL:WeekNav_Item}}
+
+{{TPL:WeekNav_Empty}}<!-- VsgNavSub_Empty -->
+{{/TPL:WeekNav_Empty}}
+
+{{TPL:WeekNav_Curr}}
+<td{{*tdMisc}}><b style="color:#777;">{{wdTn}}., {{dtTn}}</b></td>
+{{/TPL:WeekNav_Curr}}
+
+{{TPL:FramePlace}}
+  <table width="100%" border="0" cellspacing="0" cellpadding="1">
+    <tr>
+      <td><img height=1 alt="" src="{{/theme/}}images/1x1.gif" width=5 border=0></td>
+      <td colspan="2"><img height=4 alt="" src="{{/theme/}}images/1x1.gif" width=1 border=0></td>
+      <td><img height=1 alt="" src="{{/theme/}}images/1x1.gif" width=5 border=0></td>
+    </tr>
+{{_}}
+  </table>
+{{/TPL:FramePlace}}
+
+{{TPL:FramePlace_Empty}}
+    <tr>
+      <td><img height=1 alt="" src="{{/theme/}}images/1x1.gif" width=5 border=0></td>
+      <td>&nbsp;</td>
+      <td width="100%">&nbsp;</td>
+      <td><img height=1 alt="" src="{{/theme/}}images/1x1.gif" width=5 border=0></td>
+    </tr>
+{{/TPL:FramePlace_Empty}}
+
+{{TPL:FramePlace_Curr}}
+    <tr>
+      <td><img height=1 alt="" src="{{/theme/}}images/1x1.gif" width=5 border=0></td>
+      <td><a href="{{*href}}"><img src="http://e1.ru/{{*pic}}" width="50" hspace="4" vspace="1" border="0" align="left"></a></td>
+      <td width="100%"><a href="{{/}}{{*href}}" class="headline_medium"><strong>{{*name}}</strong></a></td>
+      <td><img height=1 alt="" src="{{/theme/}}images/1x1.gif" width=5 border=0></td>
+    </tr>
+{{/TPL:FramePlace_Curr}}
+
+{{TPL:FramePlace_Item}}
+    <tr>
+      <td><img height=1 alt="" src="{{/theme/}}images/1x1.gif" width=5 border=0></td>
+      <td>&nbsp;</td>
+      <td width="100%"><a href="{{/}}{{*href}}" class="headline_medium"><strong>{{*name}}</strong></a></td>
+      <td><img height=1 alt="" src="{{/theme/}}images/1x1.gif" width=5 border=0></td>
+    </tr>
+{{/TPL:FramePlace_Item}}
+
+{{TPL:FramePlace_Delim}}
+    <tr>
+      <TD colspan="2"><img height=2 alt="" src="{{/theme/}}images/1x1.gif" width=1 border=0></TD>
+    </tr>
+{{/TPL:FramePlace_Delim}}
+
+
+{{TPL:FrameFilm}}
+  <table width="100%" border="0" cellspacing="0" cellpadding="1">
+    <tr>
+      <td><img height=1 alt="" src="{{/theme/}}images/1x1.gif" width=5 border=0></td>
+      <td colspan="2"><img height=4 alt="" src="{{/theme/}}images/1x1.gif" width=1 border=0></td>
+      <td><img height=1 alt="" src="{{/theme/}}images/1x1.gif" width=5 border=0></td>
+    </tr>
+{{_}}
+  </table>
+{{/TPL:FrameFilm}}
+
+{{TPL:FrameFilm_Empty}}
+    <tr>
+      <td><img height=1 alt="" src="{{/theme/}}images/1x1.gif" width=5 border=0></td>
+      <td>&nbsp;</td>
+      <td width="100%">&nbsp;</td>
+      <td><img height=1 alt="" src="{{/theme/}}images/1x1.gif" width=5 border=0></td>
+    </tr>
+{{/TPL:FrameFilm_Empty}}
+
+{{TPL:FrameFilm_Curr}}
+    <tr>
+      <td><img height=1 alt="" src="{{/theme/}}images/1x1.gif" width=5 border=0></td>
+      <td><a href="{{*href}}"><img src="http://e1.ru/{{*pic}}" width="50" hspace="4" vspace="1" border="0" align="left"></a></td>
+      <td width="100%"><a href="{{/}}{{*href}}" class="headline_medium"><strong>{{*name}}</strong></a></td>
+      <td><img height=1 alt="" src="{{/theme/}}images/1x1.gif" width=5 border=0></td>
+    </tr>
+{{/TPL:FrameFilm_Curr}}
+
+{{TPL:FrameFilm_Item}}
+    <tr>
+      <td><img height=1 alt="" src="{{/theme/}}images/1x1.gif" width=5 border=0></td>
+      <td>&nbsp;</td>
+      <td width="100%"><a href="{{/}}{{*href}}" class="headline_medium"><strong>{{*name}}</strong></a></td>
+      <td><img height=1 alt="" src="{{/theme/}}images/1x1.gif" width=5 border=0></td>
+    </tr>
+{{/TPL:FrameFilm_Item}}
+
+{{TPL:FrameFilm_Delim}}
+    <tr>
+      <TD colspan="2"><img height=2 alt="" src="{{/theme/}}images/1x1.gif" width=1 border=0></TD>
+    </tr>
+{{/TPL:FrameFilm_Delim}}
+
+
+{{TPL:MainList}}
+<!-- MailList : -->
+                              <table width="100%" border="0" cellspacing="0" cellpadding="1">
+                              <tr>
+                                  <td colspan="3"><img height=4 alt="" src="{{/theme/}}images/1x1.gif" width=1 border=0></td>
+                              </tr>
+{{_}}
+                              </table>
+
+<!--  / MainList -->
+{{/TPL:MainList}}
+
+{{TPL:MainList_Item}}
+
+                              <tr>
+                                <td><img height=1 alt="" src="{{/theme/}}images/1x1.gif" width=5 border=0></td>
+                                <td width="100%" align="left" valign="top">
+                                  <a href="{{/}}film/{{film_id}}" class="news">
+                                  <strong>{{title_rus}}</strong></a> {{*PremierLabel}}<br />
+                                  <br />
+                                  {{*FeedFilmImg}}
+                                  {{*announce}}<br />
+                                  <br style="clear:left;"/>
+
+                                  <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                    <tbody>
+                                      <tr>
+                                        <td style="background: rgb(204, 204, 204) none repeat scroll 0%;">
+                                        <table width="100%" border="0" cellpadding="2" cellspacing="1">
+                                            <tbody>
+                                              <tr>
+                                                <td align="left" valign="top" bgcolor="#EAEAEA" style="width:40%">кинотеатр</td>
+                                                <td align="left" valign="top" bgcolor="#EAEAEA" style="width:20%">зал</td>
+                                                <td align="left" valign="top" bgcolor="#EAEAEA" style="width:40%">сеансы</td>
+                                              </tr>
+{{Places}}
+                                            </tbody>
+                                        </table></td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                  <span class="text_small"><br /></span>
+                                </td>
+                                <td><img height=1 alt="" src="{{/theme/}}images/1x1.gif" width=5 border=0></td>
+                              </tr>
+
+
+{{/TPL:MainList_Item}}
+
+{{TPL:MainList_Empty}} <!-- ***empty item*** --> {{/TPL:MainList_Empty}}
+
+{{TPL:FeedFilmImg}}<img src="{{HttpPicThumb}}" width="50" hspace="4" vspace="1" border="0" align="left">{{/TPL:FeedFilmImg}}
+
+{{TPL:PlaceItemPic}}
+<a href="{{/}}place/{{place_id}}/"><img src="http://e1.ru/{{place_pic}}" width="50" hspace="4" vspace="1" border="0" align="left"></a>
+{{/TPL:PlaceItemPic}}
+
+{{TPL:Places}}
+{{_}}
+{{/TPL:Places}}
+
+{{TPL:Places_Item}}
+                                                  <tr>
+                                                    <td align="left" valign="top" bgcolor="#FFFFFF">
+                                                      <table border="0" cellspacing="0" cellpadding="1">
+                                                      <tr>
+<!--                                                    <td valign="middle" style="width:60px;">{{PlaceItemPic}}&nbsp;</td> -->
+                                                        <td valign="middle">  <a href="{{/}}place/{{place_id}}/">{{place_name}}</a> </td>
+                                                      </tr>
+                                                    </table>
+                                                    </td>
+                                                    <td align="left" valign="top" bgcolor="#FFFFFF">{{hall_name}}</td>
+                                                    <td align="left" valign="top" bgcolor="#FFFFFF">{{ShowTime}}</td>
+                                                  </tr>
+{{/TPL:Places_Item}}
+
+{{TPL:Places_Empty}}
+<tr><td colspan="3">&nbsp;нет сеансов<!-- { Places_Empty } --></td></tr>
+{{/TPL:Places_Empty}}
+
+{{TPL:PremierLbl}}
+<strong class="small_orange">Премьера!</strong><span class="text_small">
+{{/TPL:PremierLbl}}
+
+{{TPL:BlockBar}}
+                  <table border="0" cellpadding="0" cellspacing="0" height="1" width="100%"><tbody>
+                      <tr>
+                          <td colspan="7" bgcolor="#434343"><img src="{{/theme/}}images/1x1.gif" alt="" border="0" height="2" width="1"><br></td>
+                      </tr>
+                      <tr>
+                          <td bgcolor="#ff5200" width="7"><img src="{{/theme/}}images/1x1.gif" alt="" border="0" height="15" width="7"><br></td>
+                          <td class="block_headline" bgcolor="#e1e1e1" valign="middle" width="7"><img src="{{/theme/}}images/1x1.gif" alt="" border="0" height="15" width="7"><br></td>
+                          <td bgcolor="#e1e1e1" nowrap="nowrap" valign="middle">
+                          {{BarTitle}}
+                          </td>
+                          <td class="block_headline" bgcolor="#e1e1e1" valign="middle" width="7"><img src="{{/theme/}}images/1x1.gif" alt="" border="0" height="15" width="6"><br></td>
+                          <td bgcolor="#e1e1e1" valign="middle" width="100%"><img src="{{/theme/}}images/_divider_block_headline.gif" border="0" height="15" width="2"></td>
+                          <td bgcolor="#e1e1e1" nowrap="nowrap" valign="middle">
+<a title="{{title}}" href="{{/}}{{*href}}" class="small_gray"><img src="{{/theme/}}images/_arrow_gray.gif" border="0" height="10" width="10">перейти</a>                                    </td>
+                          <td class="block_headline" bgcolor="#e1e1e1" valign="middle" width="7"><img src="{{/theme/}}images/1x1.gif" alt="" border="0" height="15" width="10"><br></td>
+                      </tr>
+                  </tbody></table>
+
+{{/TPL:BlockBar}}
+
+{{TPL:BarTitle}}
+{{_}}
+{{/TPL:BarTitle}}
+
+{{TPL:BarTitle_Item}}
+<a title="{{title}}" href="{{/}}{{*href}}" class="block_title"><strong class="block_title">{{*title}}</strong></a>
+{{/TPL:BarTitle_Item}}
+
+{{TPL:BarTitle_Curr}}
+<strong class="block_title">{{*title}}</strong>
+{{/TPL:BarTitle_Curr}}
+
+{{TPL:BarTitle_Delim}} <b>&gt;</b> {{/TPL:BarTitle_Delim}}
+
+{{TPL:BarTitle_Empty}} {{/TPL:BarTitle_Empty}}
+
+{{TPL:Film}}
+
+                      <table width="100%" border="0" cellspacing="0" cellpadding="1">
+                        <tr>
+                          <td colspan="3"><img height=4 alt="" src="{{/theme/}}images/1x1.gif" width=1 border=0></td>
+                        </tr>
+
+                        <tr>
+                          <td rowspan="3"><img height=1 alt="" src="{{/theme/}}images/1x1.gif" width=5 border=0></td>
+                          <td>
+                            <table>
+                            <tr><td style="width:120px;">
+                             {{Pics}} <!-- <img src="{{/theme/}}images/movie_6.jpg" hspace="7" vspace="1" border="0" align="left"> -->
+                            <td/><td style="vertical-align:top;" valign="top" >
+                              <strong class="big">{{title_rus}}</strong><br />
+                              {{PremierLabel}}<br />
+                              <IMG height=7 alt="" src="{{/theme/}}images/1x1.gif" width=1 border=0></span><br>
+                              <span class="news">{{description}}</span><br/>
+                              <br />
+
+                      <table bgcolor="#BCBCBC" border="0" cellpadding="3" cellspacing="1" width="100%">
+                        <tbody>
+                          <tr bgcolor="#dddddd">
+                            <td width="25%" align="right" valign="top" bgcolor="#FFFFFF"><strong>Жанр:</strong></td>
+                            <td width="75%" align="left" valign="top" bgcolor="#FFFFFF">{{genre}}</td>
+                          </tr>
+                          <tr bgcolor="#ffffff">
+                            <td width="25%" align="right" valign="top" bgcolor="#FFFFFF"><strong>В ролях :</strong></td>
+                            <td width="75%" align="left" valign="top" bgcolor="#FFFFFF">{{role}}</td>
+                          </tr>
+                          <tr bgcolor="#dddddd">
+                            <td width="25%" align="right" valign="top" bgcolor="#FFFFFF"><strong>Страна:</strong></td>
+                            <td width="75%" align="left" valign="top" bgcolor="#FFFFFF">{{country}}</td>
+                          </tr>
+                          <tr bgcolor="#ffffff">
+                            <td width="25%" align="right" valign="top" bgcolor="#FFFFFF"><b>Режиссер:</b></td>
+                            <td width="75%" align="left" valign="top" bgcolor="#FFFFFF">{{director}}</td>
+                          </tr>
+                          <tr bgcolor="#dddddd">
+                            <td width="25%" align="right" valign="top" bgcolor="#FFFFFF"><b>Год:</b></td>
+                            <td width="75%" align="left" valign="top" bgcolor="#FFFFFF">{{year}}</td>
+                          </tr>
+
+                          {{?VideoReady}}
+                          <tr bgcolor="#dddddd">
+                            <td width="25%" align="right" valign="top" bgcolor="#FFFFFF"><b>Трейлер:</b></td>
+                            <td width="75%" align="left" valign="top" bgcolor="#FFFFFF">{{VideoPlayer}}</td>
+                          </tr>
+                          {{?/}}
+
+
+                        </tbody>
+                      </table>
+
+
+                            </td></tr>
+                            </table>
+
+
+{{Places}}
+               </td>
+
+                <td rowspan="3"><img height=1 alt="" src="{{/theme/}}images/1x1.gif" width=5 border=0></td>
+            </tr>
+            <tr>
+                <TD><img height=7 alt="" src="{{/theme/}}images/1x1.gif" width=1 border=0></TD>
+            </tr>
+            <tr>
+              <td><span class="small_black">Другие фильмы в разделе:</span>
+                  <a href="{{/}}" title="Афиша кино" class="small_blue"><strong>Киноафиша</strong></a><br />
+                  <img height=7 alt="" src="{{/theme/}}images/1x1.gif" width=1 border=0></td>
+            </tr>
+          </table>
+
+
+{{/TPL:Film}}
+
+
+
+{{TPL:FilmPlaces}}
+<br />
+<strong class="text_small">{{ShowDate}}</strong>
+<br />
+<table width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#BCBCBC" class="table">
+  <tbody>
+<!--    <tr>      <td colspan="3" style="background: rgb(204, 204, 204) none repeat scroll 0%;"></td>    </tr> -->
+    <tr>
+      <td align="left" valign="top" bgcolor="#EAEAEA" style="width:40%"><span class="text_small">кинотеатр</span></td>
+      <td align="left" valign="top" bgcolor="#EAEAEA" style="width:20%">зал</td>
+      <td align="left" valign="top" bgcolor="#EAEAEA" style="width:40%">сеансы</td>
+    </tr>
+
+
+{{_}}
+  </tbody>
+</table>
+{{/TPL:FilmPlaces}}
+
+{{TPL:FilmPlaces_Item}}
+    <tr>
+      <td bgcolor="#FFFFFF" style="width: 50%;"> <a href="{{/}}place/{{place_id}}">{{place_name}}</a> </td>
+      <td bgcolor="#FFFFFF" style="width: 20%;"> {{hall_name}} </td>
+      <td bgcolor="#FFFFFF" style="width: 30%;"> {{ShowTime}} </td>
+    </tr>
+{{/TPL:FilmPlaces_Item}}
+
+{{TPL:FilmPlaces_Empty}} нет сеансов &nbsp;{{/TPL:FilmPlaces_Empty}}
+
+{{TPL:FilmPlaces_Delim}}  <br />
+{{/TPL:FilmPlaces_Delim}}
+
+
+{{TPL:FilmPic}}
+<table style="vertical-align:top;padding-right:7px;padding-bottom:7px;">
+  {{_}}
+</table>
+{{/TPL:FilmPic}}
+
+{{TPL:FilmPic_Item}}
+<tr><td>
+      <img border="0" align="left" border="0" src="{{HttpPic}}"/> </a>
+</td></tr>
+{{/TPL:FilmPic_Item}}
+
+{{TPL:FilmPic_Empty}} <!-- FilmPic_Empty --> {{/TPL:FilmPic_Empty}}
+
+{{TPL:FilmPic_Delim}} <br />{{/TPL:FilmPic_Delim}}
+
+
+{{TPL:ShowTime}}{{_}}{{/TPL:ShowTime}}
+{{TPL:ShowTime_Item}}{{start_time}}{{/TPL:ShowTime_Item}}
+{{TPL:ShowTime_Delim}}, {{/TPL:ShowTime_Delim}}
+{{TPL:ShowTime_Empty}} время сеансов не указано {{/TPL:ShowTime_Empty}}
+
+
+
+{{TPL:PlacePic}}
+<img style="border:0;float:left;" src="/{{pic}}" hspace="4" vspace="1" border="0" align="left" />
+{{/TPL:PlacePic}}
+
+
+{{TPL:Place}}
+<table width="100%" border="0" cellspacing="0" cellpadding="1">
+                              <tr>
+                                <td colspan="3"><img height=4 alt="" src="{{/theme/}}images/1x1.gif" width=1 border=0></td>
+                              </tr>
+                              <tr>
+                                <td rowspan="3"><img height=1 alt="" src="{{/theme/}}images/1x1.gif" width=5 border=0></td>
+                                <td><strong class="big">{{place_name}}</strong>
+                                  <span class="small_orange"><br />
+                                  <IMG height=7 alt="" src="{{/theme/}}images/1x1.gif" width=1 border=0></span><br />
+                                  {{PlacePic}}
+                                  <span class="news"> {{place_comment}} <br /> </span>
+                                  <br />
+                      <table bgcolor="#BCBCBC" border="0" cellpadding="3" cellspacing="1" width="100%">
+                        <tbody>
+                          <tr bgcolor="#dddddd">
+                            <td width="25%" align="right" valign="top" bgcolor="#FFFFFF"><strong>Адрес:</strong></td>
+                            <td width="75%" align="left" valign="top" bgcolor="#FFFFFF"> {{place_address}}</td>
+                          </tr>
+
+                          <tr bgcolor="#ffffff">
+                            <td width="25%" align="right" valign="top" bgcolor="#FFFFFF"><strong>Телефоны:</strong></td>
+                            <td width="75%" align="left" valign="top" bgcolor="#FFFFFF"> {{place_tel}}</td>
+                          </tr>
+                          <tr bgcolor="#dddddd">
+                            <td width="25%" align="right" valign="top" bgcolor="#FFFFFF"><strong>Сайт:</strong></td>
+                            <td width="75%" align="left" valign="top" bgcolor="#FFFFFF"> <a target="_blank" href="{{place_URL}}">{{place_URL}}</a></td>
+                          </tr>
+                        </tbody>
+                      </table>
+
+{{Places}}
+
+                      </td>
+                      <td rowspan="3"><img height=1 alt="" src="{{/theme/}}images/1x1.gif" width=5  border=0></td>
+
+                              </tr>
+
+                              <tr>
+                                <TD><img height=7 alt="" src="{{/theme/}}images/1x1.gif" width=1 border=0></TD>
+                              </tr>
+                              <tr>
+                                <td><p></td>
+                              </tr>
+                            </table>
+
+{{/TPL:Place}}
+
+
+
+
+
+
+{{TPL:PlaceFilms}}
+                      <br />
+                      <strong class="text_small">{{ShowDate}}</strong>
+  <br />
+  <table width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#BCBCBC" class="table">
+    <tbody>
+    <!--  <tr> <td colspan="3" style="background: rgb(204, 204, 204) none repeat scroll 0%;"> </td></tr> -->
+    <tr>
+      <td align="left" valign="top" bgcolor="#EAEAEA" style="width:40%"><span class="text_small">фильм</span></td>
+      <td align="left" valign="top" bgcolor="#EAEAEA" style="width:20%">зал</td>
+      <td align="left" valign="top" bgcolor="#EAEAEA" style="width:40%">сеансы</td>
+    </tr>
+
+{{_}}
+    </tbody>
+  </table>
+
+{{/TPL:PlaceFilms}}
+
+{{TPL:PlaceFilms_Item}}
+      <tr>
+        <td bgcolor="#FFFFFF" style="width: 50%;"> <a href="{{/}}film/{{film_id}}">{{title_rus}}</a> </td>
+        <td bgcolor="#FFFFFF" style="width: 20%;">  {{hall_name}} </td>
+        <td bgcolor="#FFFFFF" style="width: 30%;"> {{ShowTime}}  </td>
+      </tr>
+{{/TPL:PlaceFilms_Item}}
+
+{{TPL:PlaceFilms_Empty}}
+<tr><td colspan="3">&nbsp;нет сеансов</td></tr>
+{{/TPL:PlaceFilms_Empty}}
+
+{{TPL:ListTitled}}
+<table class="table w100">
+<tr><th{{capMisc}}>{{Caption}}</th></tr>
+  {{_}}
+</table>
+{{/TPL:ListTitled}}
+
+{{TPL:ListTitled_Item}}
+<tr><td><a href="{{/}}{{href}}">{{name}}</a></td></tr>
+{{/TPL:ListTitled_Item}}
+
+{{TPL:ListTitled_Empty}}
+<tr><td>&nbsp; </td></tr>
+{{/TPL:ListTitled_Empty}}
+
+{{TPL:ListPlain}}
+<table class="table w100">
+  {{_}}
+</table>
+{{/TPL:ListPlain}}
+
+{{TPL:ListPlain_Item}}
+<tr><td><a href="{{/}}{{href}}">{{name}}</a></td></tr>
+{{/TPL:ListPlain_Item}}
+
+{{TPL:ListPlain_Empty}}
+<tr><td>&nbsp; </td></tr>
+{{/TPL:ListPlain_Empty}}
+
+
+{{TPL:Overview}}
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+{{_}}
+         <tr>
+            <td colspan="3"><a title="Киноафиша" class="small_black" href="{{/}}">
+              <br />
+              <img src="/images/arrows/_arrow_orange.gif" border="0" height="10" width="10">Все фильмы киноафиши</a>
+            </td>
+        </tr>
+    </table>
+
+    <TABLE width="100%" border="0" cellspacing="0" cellpadding="0">
+      <TR>
+        <TD><img src="/images/1x1.gif" width="1" height="20" border="0" alt="" /><br /></TD>
+      </TR>
+    </TABLE>
+
+{{/TPL:Overview}}
+
+{{TPL:Overview_Item}}
+        <tr>
+          <td><img height=1 alt="" src="{{/theme/}}images/1x1.gif" width=5  border=0></td>
+          <td align="left" valign="top"><a href="{{/}}film/{{film_id}}"><img style="padding-left:0;padding-right:7px;padding-bottom:7px;" src="{{HttpPicThumb}}" width="50" hspace="5" vspace="1" border="0" align="left">
+          <a href="{{/}}film/{{film_id}}" class="headline_medium"><strong>{{title_rus}}</strong></a> {{PremierLabel}}<br />
+                      <span class="text_small">{{announce}}<br/></span>
+                      <span class="small_black"><img src="/images/arrows/_arrow_orange.gif" width="10" height="10" border="0"><strong>Где
+                      посмотреть:</strong></span> {{OVPlaces}}
+            </td>
+          <td><img height=1 alt="" src="{{/theme/}}images/1x1.gif" width=5 border=0></td>
+        </tr>
+{{/TPL:Overview_Item}}
+
+{{TPL:Overview_Delim}}
+        <tr>
+          <td colspan="4"><img height=4 alt="" src="{{/theme/}}images/1x1.gif" width=1 border=0></td>
+        </tr>
+{{/TPL:Overview_Delim}}
+
+{{TPL:Overview_Empty}} <!-- afisha kino : overview empty -->
+{{/TPL:Overview_Empty}}
+
+{{TPL:OVPlaces}}
+<span class="text_small">
+{{_}}
+</span><br / >
+{{/TPL:OVPlaces}}
+
+{{TPL:OVPlaces_Item}}
+<a href="{{/}}place/{{place_id}}" class="small_black">{{place_name}}</a>
+{{/TPL:OVPlaces_Item}}
+
+{{TPL:OVPlaces_Delim}}, {{/TPL:OVPlaces_Delim}}
+
+{{TPL:OVPlaces_Empty}} неизвестно {{/TPL:OVPlaces_Empty}}
+
+{{TPL:OVPage}}
+{{@:BlockBar}}
+{{/TPL:OVPage}}

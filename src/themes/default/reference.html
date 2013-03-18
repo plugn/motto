@@ -1,0 +1,70 @@
+{{TPL:Edit}}
+                <h1 style="clear:both;">{{client_sys_name}}</h1>
+                <h2>{{HTMLTitle}}</h2>
+                <form action="{{FormAction}}" method="post">
+{{__form_present}}
+{{hdnId}}
+                <table class="table" style="width: 500px;" cellpadding="0" cellspacing="0">
+                        <tr>
+                                <th>{{CurrOperation}}</th>
+                                <th>&nbsp;</th>
+                        </tr>
+                        <tr>
+                                <td class="teri">Модель</td>
+                                <td class="edite">
+
+{{txtModel}}
+
+                                </td>
+                        </tr>
+                        <tr>
+                                <td class="teri">Срок гарантийного ремонта</td>
+                                <td class="edite" style="text-align:right;">
+<nobr>
+{{txtExpiryGuarant}}
+</nobr>
+                                </td>
+                        </tr>
+                        <tr>
+                                <td class="teri">Срок ТО</td>
+                                <td class="edite" style="text-align:right;"><nobr>
+{{txtExpiryTO}}
+                                </td>
+                        </tr>
+                        <tr>
+                                <td class="add" colspan="2">
+                                        <input type="reset" name="" value="Очистить" />
+                                        <input type="submit" name="" value="Сохранить" />
+                                </td>
+                        </tr>
+                </table>
+                </form>
+{{/TPL:Edit}}
+
+
+{{TPL:List}}
+                <h1 style="clear:both;">{{client_sys_name}}</h1>
+                <h2>{{HTMLTitle}}</h2>
+
+                <table class="table" style="width: 500px;">
+                        <tr>
+                                <th>Название</th>
+                                <th>Редактировать</th>
+                                <th>Удалить</th>
+                        </tr>
+{{_}}
+
+                        <tr>
+                                <td colspan="3" class="add"><a href="{{/}}{{href:create}}">Добавить</a></td>
+                        </tr>
+                </table>
+
+{{/TPL:List}}
+
+{{TPL:List_Item}}
+                        <tr>
+                                <td class="name">{{name}}</td>
+                                <td><a href="{{/}}{{href:edit}}">Редактировать</a></td>
+                                <td><a href="{{/}}{{href:drop}}" {{href:drop.confirm}}>Удалить</a></td>
+                        </tr>
+{{/TPL:List_Item}}

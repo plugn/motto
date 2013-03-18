@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+
+<html>
+<head>
+<script language="javascript" src="dom-drag.js"></script>
+</head>
+
+<body>
+
+<img id="p" src="./gfx/p.gif" style="position:absolute; left:20px; top:50px;" />
+
+<script language="javascript">
+        window.onload = function() {
+                Drag.init(document.getElementById("p"), null, null, null, null, null, false, false, null, mySin);
+        }
+        function mySin(x) {
+                return Math.round(Math.sin((x - 20) / 10) * 10) + 50;
+        }
+</script>
+</body>
+</html>
+

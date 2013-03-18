@@ -1,0 +1,274 @@
+{{TPL:Edit}}
+                <script language="javascript" src="{{/theme/}}js/mAjaxCB.js" type="text/javascript"></script>
+                <script language="javascript">document.timeCnt=1;</script>
+                <div id="pgsbar" style="position:absolute; top:30px; left: 650px;"></div>
+
+                <h1 style="clear:both;">{{client_name}}</h1>
+                <h2>{{HTMLTitle}}</h2>
+<h4>{{CurrOperation}}</h4>
+                <!--
+                  <form name="showEdit" action="{{/}}{{/uri:0/}}/{{/uri:1/}}/" method="post" enctype="multipart/form-data">
+                -->
+                <form name="showEdit" action="{{/}}{{/uri/}}/" method="post" enctype="multipart/form-data">
+{{__form_present}}
+{{hdnId}}
+                <table class="table" style="width: 500px;" cellpadding="0" cellspacing="0">
+                        <tr>
+                                <td class="teri">Фильм</td>
+                                <td class="edite">{{formFilm}}</td>
+                        </tr>
+                        <tr>
+                                <td class="teri">Кинотеатр</td>
+                                <td class="edite">{{formPlace}}</td>
+                        </tr>
+                        <tr>
+                                <td class="teri">Зал</td>
+                                <td class="edite"><span id="node_form_hall">{{formHall}}</span></td>
+                        </tr>
+                        <tr>
+                                <td class="teri">О цене</td>
+                                <td class="edite">{{formPriceWord}}</td>
+                        </tr>
+                        <tr>
+                                <td class="teri">Статус</td>
+                                <td class="edite">{{formStatus}}</td>
+                        </tr>
+
+                        <tr id="tpr" style="display:none;">
+                                <td class="teri">&nbsp;</td>
+                                <td class="edite">
+                                  <nobr>с <input type="text" name="_fdata_date_start" value="2006-09-09"/>
+                                  <a href="javascript:;"><img class="block" src="/afisha/kino/themes/default/images/calendar.gif" alt="[календарь]" align="top" border="0" height="20" vspace="1" width="23"/></a>
+                                   по <input type="text" name="_fdata_date_stop" value="2006-09-29"/>
+<a href="javascript:;" onclick=""><img class="block" src="/afisha/kino/themes/default/images/calendar.gif" alt="[календарь]" align="top" border="0" height="20" vspace="1" width="23"/></a>
+                                    <input type="button" name="" value="Время" onclick="cssToggle('timectrl', ['appear','disappear'] );" /></nobr>
+                                </td>
+                        </tr>
+
+
+{{ShowPeriods}}
+
+                        <tr>
+                                <td colspan="2" style="background:#ccc;">
+                                        <input type="button" name="addPeriod" value="+" onclick="rfShwPerAdd('tpr','tbr_smr');" />
+                                        <input type="button" name="rmvPeriod" value="-" onclick="rfShwPerRemove('tpr');" />
+                                </td>
+                        </tr>
+
+                        <tr id="tbr_smr">
+                                <td class="add" colspan="2">
+                                        <input type="reset" name="" value="Очистить" />
+                                        <input type="submit" name="btnSave" value="Сохранить" />
+                                </td>
+                        </tr>
+                </table>
+                </form>
+
+                <div id="timectrl" class="appear">
+                </div>
+{{TimeCtrl}}
+
+{{/TPL:Edit}}
+
+
+{{TPL:ShowPeriods}}
+                        <tr>
+                            <td style="background:#ccc;">&nbsp;</td><td style="background:#ccc;">Периоды показа</td>
+                        </tr>
+{{_}}
+{{/TPL:ShowPeriods}}
+
+{{TPL:ShowPeriods_Item}}
+                        <tr id="tpr{{*trNum}}">
+                            <td style="text-align:left;">&nbsp;[ <a title="удалить период" onclick="return confirm('Вы подтверждаете удаление выбранного периода и связанных с ним данных?');" href="{{/}}{{/uri:0/}}/drop/{{*id}}">x</a> ]&nbsp;</td>
+                            <td>
+                                <nobr>с {{formDateStart}}{{formCALDateStart}} по {{formDateStop}}{{formCALDateStop}}
+                                <input type="button" name="" value="Время" onclick="contentReflect('timectrl_{{*id}}', 'timectrl');" /></nobr>
+                            </td>
+                        </tr>
+{{/TPL:ShowPeriods_Item}}
+
+{{TPL:ShowPeriods_Empty}}
+                        <tr><td colspan="2">&nbsp;<!-- *** ShowPeriods_Empty *** --> </td></tr>
+{{/TPL:ShowPeriods_Empty}}
+
+
+
+{{TPL:TimeCtrl}}
+
+                <div id="timectrl_{{showid}}" class="disappear">
+
+                <form name="timeform" action="{{/}}{{/uri:0/}}/time/{{showid}}" method="post" enctype="multipart/form-data">
+                {{__form_present2}}
+                <table class="table" style="width:250px;border:1px dashed #555;" cellpadding="0" cellspacing="0">
+                  <tr><th colspan="2" style="background:#ccc;weight:bold;"> Время </th></tr>
+
+{{_}}
+{{BtnEditSave}}
+                  <tr>
+                     <td colspan="2" class="bg-c">
+                     <span style="align:right">[ <a title="ввод одной строкой" href="javascript:;" onclick="elSwitch(getNode('enterStr'));">=</a> ]</span>
+                     <b>Добавить</b>
+                      <div id="enterStr" style="z-index:110;display:none;position:relative;top:0px;left:0px;">
+                      <span class="bg-e" style="width:540px;"><nobr>строкой:
+                       <input type="text" size="40" id="timeStrSrc" name="timeStrSrc" value="00-01  00:02 ; 00-03, 4 hours 19 min P.M. 00.04 00-05 "/>
+                       <input style="text-size:x-small;" onclick="csvStrInject(getNode('timeStrSrc').value);" type="button" value=" &gt;&gt; "/></nobr>
+                      </span>
+                      </div>
+
+                     </td>
+                  </tr>
+                  <tr>
+                    <td>{{AddTime}} </td>
+                    <td>&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">
+                    <input type="submit" id="btnTimeAdd" name="btnTimeAdd" value="Сохранить"/>
+                    </td>
+                  </tr>
+                </table>
+                </form>
+
+                </div>
+{{/TPL:TimeCtrl}}
+
+{{TPL:TimeCtrl_Item}}
+                  <tr>
+                    <td>
+                      {{formTime}}
+                    </td>
+                    <td>&nbsp;{{formDrop}}</td>
+                  </tr>
+{{/TPL:TimeCtrl_Item}}
+
+{{TPL:TimeCtrl_Delim}}<br />
+{{/TPL:TimeCtrl_Delim}}
+
+{{TPL:BtnEditSave}}
+                  <tr><td colspan="2">
+                    <input type="submit" id="btnTimeEdit" name="btnTimeEdit" value="Сохранить"/>
+                  </td></tr>
+{{/TPL:BtnEditSave}}
+
+
+
+{{TPL:TimeCtrl_Empty}}
+                  <tr><td colspan="2">
+<div style="border: 1px dashed; #c0c0c0;"> список пуст.  </div>
+                  </td></tr>
+{{/TPL:TimeCtrl_Empty}}
+
+{{TPL:NoTimeCtrl}}
+                <div id="pgsbar" style="position:absolute; top:30px; left: 650px;"></div>
+                <div id="timectrl" class="appear">
+                <div style="border:1px dashed #999;padding:5px;color:maroon;">
+                <p><em>Необходимо создать и сохранить новый сеанс,<br />после чего можно будет указать время.</p></div>
+                </div>
+{{/TPL:NoTimeCtrl}}
+
+
+{{TPL:Pic}}
+                        <tr>
+                                <td class="teri"> &nbsp; </td>
+                                <td class="edite">
+                                    <div> <img src="{{HttpPic}}" /> </div>
+                                    <br />{{formFileDrop}}
+                                </td>
+                        </tr>
+
+{{/TPL:Pic}}
+
+
+
+{{TPL:FormFilter}}  <!--  <form action="" method="get"> {{__form_present}} </form>  -->
+                {{formPlace}}
+{{/TPL:FormFilter}}
+
+{{TPL:RefList}}
+
+                <h1 style="clear:both;">{{client_sys_name}}</h1>
+                <h2>{{HTMLTitle}}</h2>
+
+{{FormFilter}}
+
+                | <input style="font-size:x-small;" onclick="location.href='{{/}}{{href:create}}'" type="button" value=" создать сеанс" />
+
+<br />
+{{List}}
+
+
+{{/TPL:RefList}}
+
+{{TPL:List}}
+                    <br />
+                    <table class="table" style="width: 500px;" cellpadding="0" cellspacing="0">
+                        <tr>
+                                <td class="name"><b>{{FilmRus}}</b>&nbsp;</td>
+                                <td> &nbsp;</td>
+                                <td> &nbsp;</td>
+                        </tr>
+                    </table>
+
+{{_}}
+
+{{/TPL:List}}
+
+{{TPL:List_Item}}
+                    <div style="width:500px; background:#eee;">
+                    <table class="table" style="width:500px;" cellpadding="0" cellspacing="0">
+                        <tr style="background:#ccc; margin: 3px; color:#555;width:500px;" >
+                                <td style="width:100px;"> &nbsp;</td>
+                                <td><a href="{{/}}{{*href:edit}}">Редактировать</a></td>
+                                <td><a href="{{/}}{{*href:drop}}" {{href:drop.confirm}}>Удалить</a></td>
+                        </tr>
+                        <tr>
+                                <td>площадка:</td><td>{{*place_name}}</td><td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                                <td>зал:</td><td>{{*hall}}</td><td>&nbsp;</td>
+                        </tr>
+<!--
+                        <tr>
+                                <td>цена:</td><td>{{price_word}}</td><td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                                <td>период: </td><td>с {{date_start}} по {{date_stop}}</td><td>&nbsp;</td>
+                        </tr>
+-->
+                    </table>
+                    </div>
+
+{{/TPL:List_Item}}
+
+{{TPL:List_Empty}}
+                        <tr><td>
+                                <div style="border: 1px dashed; #c0c0c0;"> список пуст. попробуйте другие режимы  </div>
+                        </td></tr>
+{{/TPL:List_Empty}}
+
+
+{{TPL:Screen}}
+                <h1 style="clear:both;">{{client_sys_name}}</h1>
+                <h2>{{HTMLTitle}}</h2>
+
+
+                <table class="table" style="width: 500px;">
+                        <tr>
+                                <th>Название</th>
+                                <th>Редактировать</th>
+                                <th>Удалить</th>
+                        </tr>
+                        <tr>
+                                <td class="name">{{name}}</td>
+                                <td><a href="{{/}}{{href:edit}}">Редактировать</a></td>
+                                <td><a href="{{/}}{{href:drop}}" {{href:drop.confirm}}>Удалить</a></td>
+                        </tr>
+{{_}}
+
+                        <tr>
+                                <td colspan="3" class="add"><a href="{{/}}{{href:create}}">Добавить</a></td>
+                        </tr>
+                </table>
+
+{{/TPL:Screen}}

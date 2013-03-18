@@ -1,0 +1,104 @@
+{{TPL:Edit}}
+
+                <h1 style="clear:both;">{{client_name}}</h1>
+                <h2>{{HTMLTitle}}</h2>
+                <!-- <form action="{{/}}{{/uri:0/}}/{{/uri:1/}}/" method="post" enctype="multipart/form-data"> -->
+                <form id="formEd" action="{{/}}{{/uri/}}/" method="post" enctype="multipart/form-data"
+                      onsubmit="return validateIsEmpty(['_name'], ['_nmVa']);">
+{{__form_present}}
+{{hdnId}}
+                <table class="table" style="width: 500px;" cellpadding="0" cellspacing="0">
+                        <tr>
+                                <th>{{CurrOperation}}</th>
+                                <th>&nbsp;</th>
+                        </tr>
+                        <tr>
+                                <td class="teri"> Название
+                                  <a style="color:#f00;" href="javascript:;" title="отменить ввод" onclick="getNode('formEd').reset();">
+                                  <span id="_nmVa"></span>
+                                </a>
+                                </td>
+                                <td class="edite">{{formName}}</td>
+                        </tr>
+                        <tr>
+                                <td class="teri">Кинотеатр</td>
+                                <td class="edite">{{formPlace}}</td>
+                        </tr>
+                        <tr>
+                                <td class="teri">Описание</td>
+                                <td class="edite">{{formDesc}}</td>
+                        </tr>
+                        <tr>
+                                <td class="teri">Изображение<br />
+                    <span style="font-size:x-small;"><b>только:</b> jpeg, jpg, jpe, gif, png</span>
+                                </td>
+                                <td class="edite">{{formUpload}}</td>
+                        </tr>
+
+{{Pic}}
+                        <tr>
+                                <td class="add" colspan="2">
+                                        <input type="reset" name="" value="Очистить" />
+                                        <input type="submit" name="" value="Сохранить" />
+                                </td>
+                        </tr>
+                </table>
+                </form>
+{{/TPL:Edit}}
+
+{{TPL:Pic}}
+                        <tr>
+                                <td> </td>
+                                <td>
+                                    <div> <img src="{{HttpPic}}" /> </div>
+                                    <br />{{formFileDrop}}
+                                </td>
+                        </tr>
+
+{{/TPL:Pic}}
+
+
+
+{{TPL:FormFilter}}
+                <form action="" method="get">
+
+                {{__form_present}}
+                {{formPlace}}
+                </form>
+{{/TPL:FormFilter}}
+
+
+{{TPL:List}}
+                <h1 style="clear:both;">{{client_sys_name}}</h1>
+                <h2>{{HTMLTitle}}</h2>
+
+{{FormFilter}}
+
+                <table class="table" style="width: 500px;">
+                        <tr>
+                                <th>Название</th>
+                                <th>Редактировать</th>
+                                <th>Удалить</th>
+                        </tr>
+{{_}}
+
+                        <tr>
+                                <td colspan="3" class="add"><a href="{{/}}{{href:create}}">Добавить</a></td>
+                        </tr>
+                </table>
+
+{{/TPL:List}}
+
+{{TPL:List_Item}}
+                        <tr>
+                                <td class="name">{{name}}</td>
+                                <td><a href="{{/}}{{href:edit}}">Редактировать</a></td>
+                                <td><a href="{{/}}{{href:drop}}" {{href:drop.confirm}}>Удалить</a></td>
+                        </tr>
+{{/TPL:List_Item}}
+
+{{TPL:List_Empty}}
+                        <tr><td>
+                                <div style="border: 1px dashed; #c0c0c0;"> список пуст. попробуйте другие режимы  </div>
+                        </td></tr>
+{{/TPL:List_Empty}}

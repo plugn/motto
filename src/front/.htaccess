@@ -1,0 +1,10 @@
+RewriteEngine on
+
+RewriteCond    %{REQUEST_FILENAME}  -d
+RewriteRule ^(.*/[^\./]*[^/])$ $1/
+
+# RewriteRule ^flash.swf$ flash.swf [QSA,L]
+
+RewriteRule ^(.*)$ index.php?page=$1 [QSA,L]
+
+# php_value session.use_trans_sid 0

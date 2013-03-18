@@ -1,0 +1,32 @@
+{{TPL:menu}}
+{{menu_List}}
+{{/TPL:menu}}
+
+{{TPL:menu_Item}}
+                        <nobr><a href="{{/}}{{href}}/{{qs}}">{{title}}</a></nobr>
+{{/TPL:menu_Item}}
+
+{{TPL:menu_Curr}}
+                        <nobr><b>{{title}}</b></nobr>
+{{/TPL:menu_Curr}}
+
+
+{{TPL:menu_Delim}}
+{{/TPL:menu_Delim}}
+
+
+<!-- -->
+{{TPL:menu_wrap}}
+                <div class="menu">
+{{menu_List}}
+                </div>
+{{/TPL:menu_wrap}}
+
+
+{{TPL:menu2}}
+                <div class="menu">
+                  {{TPL:menu2_Item}}
+<a href="{{href}}">{{cdata}}</a>
+                  {{TPL:menu2_Item}}
+                </div>
+{{/TPL:menu2}}

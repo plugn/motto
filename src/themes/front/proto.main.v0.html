@@ -1,0 +1,341 @@
+
+{{TPL:Main}}
+
+<span><a href="/afisha/">афиша</a> / <a href="{{/}}">Кино</a></span>
+
+<div style="width:50%;border:1px dashed #777; padding:2pt; background:#eee;">
+  <div style="font-size:16pt;">{{ViewDate}}</div>
+</div>
+
+<h4>{{HTMLTitle}}</h4>
+
+{{Filter}}
+
+{{CONTENT}}
+
+
+{{/TPL:Main}}
+
+{{TPL:MainList}}
+
+<table class="table w100">
+    <tr><td style="45%;vertical-align:top;">
+      <table class="table">
+      {{_}}
+      </table>
+    </td><td style="width:35%;vertical-align:top;">
+    <div id="preview">&nbsp;</div>
+    </td><td style="width:20%;vertical-align:top;">
+      {{frameCal}}
+      {{frameFilms}}
+      {{framePlaces}}
+    </td></tr>
+</table>
+
+{{/TPL:MainList}}
+
+
+{{TPL:MainList_Item}}
+  <tr>
+      <td>
+
+          <div style="cursor:hand;" onmouseover="getNode('preview').innerHTML=getNode('hover_{{film_id}}').innerHTML;" onmouseout="getNode('preview').innerHTML='&nbsp;'" onclick="location.href=getNode('af_{{film_id}}').href;" >
+              <table cellspasing="0" cellpadding="0" width="100%">
+                <tr>
+                    <td colspan="3" style="width:300px;">
+                        <a href="{{/}}film/{{film_id}}"><img style="border:0;width:30px;" src="/{{pic}}"/></a>
+                        <a id="af_{{film_id}}" href="{{/}}film/{{film_id}}">{{title_rus}}</a>
+                    </td>
+                </tr>
+                {{Places}}
+              </table>
+          </div>
+<!--
+          <div id="hover_{{film_id}}" class="disappear">
+              <table cellspacing="3" cellpadding="0" width="100%" style="vertical-align:top;">
+                <tr>
+                  <td style="vertical-align:top;"><a href="{{/}}film/{{film_id}}"><img style="border:0;width:100px;" src="/{{pic}}"/></a><br />
+                      <b>Жанр:</b> {{genre}}. <b>{{country}}</b>, <b>{{year}}</b>. <b>Режиссер:</b> {{director}}&nbsp;<b><br />
+                      В ролях:</b> {{role}}
+                  </td>
+                  <td style="vertical-align:top;"><span style="font-weight:bolder;">{{title_rus}}</span>
+                      <p></p>
+                      {{announce}}</td>
+                </tr>
+              </table>
+          </div>
+-->
+      </td>
+  </tr>
+{{/TPL:MainList_Item}}
+
+{{TPL:MainList_Empty}} <!-- ***empty item*** --> {{/TPL:MainList_Empty}}
+
+
+{{TPL:Filter}}
+    <div id="filter">
+        {{filtrDays}} {{filtrDirection}}
+        <!--
+        <span style="background:rgb(150,150,150);color:#fff;"> [
+          по неделям: <span style="font-weight:bolder;"><a style="background:#fff;color:rgb(150,150,150);text-decoration:none;" href="?_f=curwk">текущая</a> |
+          <a style="background:#fff;color:rgb(150,150,150);text-decoration:none;" href="?_f=nextwk">+ следующая</a></span> ]
+        </span>
+         -->
+        {{filtr}}
+    </div>
+{{/TPL:Filter}}
+
+
+{{TPL:Film}}
+
+<table class="table">
+<tr>
+  <td>
+    <table style="width:400px;">
+    <tr>
+      <td colspan="2" style="background:#ccc;"> <b>{{title_rus}}</b></td>
+    </tr>
+
+    <tr>
+      <td><b>Жанр:</b></td>
+      <td> {{genre}}</td>
+    </tr>
+
+    <tr>
+      <td><b>В ролях:</b></td>
+      <td> {{role}}</td>
+    </tr>
+
+    <tr>
+      <td><b>Режиссер:</b></td>
+      <td> {{director}}</td>
+    </tr>
+
+    <tr>
+      <td> &nbsp; </td>
+      <td><b>{{country}}</b>, <b>{{year}}</b></td>
+    </tr>
+    </table>
+   {{Places}}
+  </td>
+
+  <td>
+    {{Pics}}
+  </td>
+</tr>
+</table>
+
+{{/TPL:Film}}
+
+
+{{TPL:ShowTime}}{{_}}{{/TPL:ShowTime}}
+{{TPL:ShowTime_Item}}{{start_time}}{{/TPL:ShowTime_Item}}
+{{TPL:ShowTime_Delim}}, {{/TPL:ShowTime_Delim}}
+{{TPL:ShowTime_Empty}} время сеансов не указано <!-- { ShowTime_Empty } -->{{/TPL:ShowTime_Empty}}
+
+
+
+{{TPL:FilmPlaces}}
+<table class="table" style="width:500px;">
+<!-- <tr>
+  <td colspan="3" style="background:#ccc;"> Сеансы </td>
+</tr> -->
+<tr>
+  <td colspan="3" style="background:#ccc;"> {{ShowDate}} </td>
+</tr>
+{{_}}
+</table>
+{{/TPL:FilmPlaces}}
+
+{{TPL:FilmPlaces_Item}}
+<tr>
+  <td style="width:50%"> {{place_name}}</td>
+  <td style="width:20%"> {{hall_name}} </td>
+  <td style="width:30%"> {{ShowTime}} </td>
+</tr>
+{{/TPL:FilmPlaces_Item}}
+
+{{TPL:FilmPlaces_Empty}}
+<tr><td colspan="3">&nbsp;нет сеансов<!-- { Places_Empty } --></td></tr>
+{{/TPL:FilmPlaces_Empty}}
+
+
+{{TPL:PlaceFilms}}
+<table class="table" style="width:500px;">
+<tr>
+  <td colspan="3" style="background:#ccc;"> {{ShowDate}} </td>
+</tr>
+{{_}}
+</table>
+{{/TPL:PlaceFilms}}
+
+{{TPL:PlaceFilms_Item}}
+<tr>
+  <td style="width:40%"> {{title_rus}} </td>
+  <td style="width:20%"> {{hall_name}} </td>
+  <td style="width:20%"> {{ShowTime}} </td>
+</tr>
+{{/TPL:PlaceFilms_Item}}
+
+{{TPL:PlaceFilms_Empty}}
+<tr><td colspan="3>&nbsp;нет сеансов<!-- { Places_Empty } --></td></tr>
+{{/TPL:PlaceFilms_Empty}}
+
+
+{{TPL:Places}}
+{{_}}
+{{/TPL:Places}}
+
+{{TPL:Places_Item}}
+<tr>
+  <td style="width:50%"> {{place_name}}</td>
+  <td style="width:20%"> {{hall_name}} </td>
+  <td style="width:30%"> {{ShowTime}} </td>
+</tr>
+{{/TPL:Places_Item}}
+
+{{TPL:Places_Empty}}
+<tr><td colspan="3">&nbsp;нет сеансов<!-- { Places_Empty } --></td></tr>
+{{/TPL:Places_Empty}}
+
+
+
+{{TPL:ListPlain}}
+<table class="table w100">
+<tr><th{{capMisc}}>{{Caption}}</th></tr>
+  {{_}}
+</table>
+{{/TPL:ListPlain}}
+
+{{TPL:ListPlain_Item}}
+<tr><td><a href="{{/}}{{href}}">{{name}}</a></td></tr>
+{{/TPL:ListPlain_Item}}
+
+{{TPL:ListPlain_Empty}}
+<tr><td>&nbsp; </td></tr>
+{{/TPL:ListPlain_Empty}}
+
+{{TPL:MainListZ_Item}}
+  <tr>
+      <td>
+
+
+          <div style="cursor:hand;" onmouseover="cssClass('hover_{{film_id}}', 'appear');" onmouseout="cssClass('hover_{{film_id}}', 'disappear');" onclick="location.href=getNode('af_{{film_id}}').href;" >
+              <table cellspasing="0" cellpadding="0" width="100%">
+                <tr>
+                    <td style="width:30%">
+                        <a id="af_{{film_id}}" href="{{/}}film/{{film_id}}">{{title_rus}}</a>
+                    </td>
+                    <td>
+                        <b>Жанр:</b> {{genre}}. <b>{{country}}</b>, <b>{{year}}</b>. <b>Режиссер:</b> {{director}}&nbsp;<b><br />
+                        В ролях:</b> {{role}}
+                     </td>
+                </tr>
+              </table>
+
+              <div id="hover_{{film_id}}" class="disappear">
+                  <table cellspasing="0" cellpadding="0" width="100%">
+                    <tr>
+                      <td><a href="{{/}}film/{{film_id}}"><img style="border:0;width:100px;" src="/{{pic}}"/></a></td>
+                      <td>{{description}}</td>
+                    </tr>
+                  </table>
+              </div>
+
+          </div>
+
+      </td>
+  </tr>
+
+{{/TPL:MainListZ_Item}}
+
+
+{{TPL:Cal}}
+<table>
+<tr{{capMisc}}>
+<td colspan="7" style="text-align:center;"> <b>{{capMonth}} {{capYear}}</b> </td>
+</tr>
+<tr{{capMisc}}><td>пн</td><td>вт</td><td>ср</td><td>чт</td><td>пт</td><td>сб</td><td>вс</td></tr>
+{{_}}
+</table>
+{{/TPL:Cal}}
+
+{{TPL:Cal_Item}}
+<tr{{trMisc}}>
+<td{{tdMisc}}>{{0}}</td>
+<td{{tdMisc}}>{{1}}</td>
+<td{{tdMisc}}>{{2}}</td>
+<td{{tdMisc}}>{{3}}</td>
+<td{{tdMisc}}>{{4}}</td>
+<td{{tdMisc}}>{{5}}</td>
+<td{{tdMisc}}>{{6}}</td>
+</tr>
+{{/TPL:Cal_Item}}
+{{TPL:Cal_Empty}}<!-- Calendar Row Empty -->{{/TPL:Cal_Empty}}
+
+
+{{TPL:CalDay_Item}}{{DayNum}}{{/TPL:CalDay_Item}}
+{{TPL:CalDay_Href}}<a href="{{/}}{{DayHref}}">{{DayNum}}</a>{{/TPL:CalDay_Href}}
+{{TPL:CalDay_Curr}}<b>{{DayNum}}</b>{{/TPL:CalDay_Curr}}
+
+{{TPL:CalDay}} {{_}} {{/TPL:CalDay}}
+{{TPL:CalDay_Empty}}<!-- **CalDay_Empty** -->{{/TPL:CalDay_Empty}}
+
+{{TPL:FilmPic}}
+<table style="width:200px;">
+<tr style="background:#ccc;">
+  <td>Изображения</td>
+</tr>
+{{_}}
+</table>
+
+{{/TPL:FilmPic}}
+
+{{TPL:FilmPic_Item}}
+<tr>
+  <td>
+  <img src="/{{pic}}" style="height:200px;"/>
+  </td>
+</tr>
+{{/TPL:FilmPic_Item}}
+
+{{TPL:FilmPic_Empty}} <!-- FilmPic_Empty --> {{/TPL:FilmPic_Empty}}
+
+
+{{TPL:Place}}
+
+    <table class="table" style="width:500px;">
+    <tr>
+      <td colspan="2" style="background:#ccc;"> <b>{{place_name}}</b></td>
+    </tr>
+
+    <tr>
+      <td><b>Сайт:</b></td>
+      <td> <a href="{{place_url}}">{{place_url}}</a></td>
+    </tr>
+
+    <tr>
+      <td><b>Телефон:</b></td>
+      <td>{{place_tel}}</td>
+    </tr>
+    <tr>
+      <td><b>Адрес:</b></td>
+      <td>{{place_address}}</td>
+    </tr>
+    {{PlacePic}}
+    </table>
+
+    {{Places}}
+
+
+{{/TPL:Place}}
+
+
+{{TPL:PlacePic}}
+    <tr>
+      <td colspan="2"><b>Изображение:</b></td>
+    </tr>
+    <tr>
+      <td colspan="2"><img style="border 1px solid #777;" src="/{{pic}}" /></td>
+    </tr>
+{{/TPL:PlacePic}}

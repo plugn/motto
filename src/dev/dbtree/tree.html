@@ -1,0 +1,21 @@
+{{TPL:Item}} <a href="{{href}}">{{title}}</a> [ {{lft}}:{{rgt}} ]
+{{/TPL:Item}}
+{{TPL:_WtSpc}}  {{/TPL:_WtSpc}}
+
+{{TPL:_Item}}
+<div id="root_{{id}}" class="root" style="border:0px #f00 dotted;left:{{sLeft}}px; top:{{sTop}}px;width:170px;"
+  onmouseover="this.style.borderWidth='1px';"  onmouseout="this.style.borderWidth='0px';">
+     <span id="handle_{{id}}" class="handle">{{title}}</span> {{lft}}:{{rgt}}
+     <a href="{{thisURL}}?drop={{id}}" onclick="return confirm('¬ы уверены в уничтожении выбранной позиции ?');">x</a> | <a href="javascript:;" onclick="treeRefProc('{{title}}',{{id}}, 'Edit');">=</a>
+     | <a href="javascript:;" onclick="treeRefProc('{{title}}',{{id}}, 'Add');">+</a>
+
+</div>
+<script language="javascript">
+    drEl[{{id}}] = { 'coordX':{{sLeft}}, 'coordY':{{sTop}} };
+    Drag.init( getNode("handle_{{id}}"), dragR_{{id}} = getNode("root_{{id}}") );
+    dragR_{{id}}.onDragEnd = function(x, y) {
+        drEl[{{id}}] = { 'coordX':x, 'coordY':y };
+        treeAfterDrag( this ) ;
+    }
+</script>
+{{/TPL:_Item}}

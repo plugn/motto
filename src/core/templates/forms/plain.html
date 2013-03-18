@@ -1,0 +1,81 @@
+{{TPL:Text}}
+<input type="text" name="{{_field_name}}" value="{{_field_value}}"{{_misc}}/>
+{{/TPL:Text}}
+
+{{TPL:Password}}
+<input type="password" name="{{_field_name}}" value="{{_field_value}}"{{_misc}}/>
+{{/TPL:Password}}
+
+{{TPL:Hidden}}
+<input type="hidden" name="{{_field_name}}" value="{{_field_value}}"{{_misc}}/>
+{{/TPL:Hidden}}
+
+{{TPL:HiddenView}}
+<input type="hidden" name="{{_field_name}}" value="{{_field_value}}"{{_misc}}/>
+{{_field_value}}
+{{/TPL:HiddenView}}
+
+{{TPL:Textarea}}
+<textarea name="{{_field_name}}" cols="{{_cols}}" rows="{{_rows}}"{{_misc}}>
+{{_field_value}}
+</textarea>
+{{/TPL:Textarea}}
+
+{{TPL:TextDesc}}
+{{_desc_before}}
+<input type="text" name="{{_field_name}}" value="{{_field_value}}"{{_misc}}/>
+{{_desc_after}}
+{{/TPL:TextDesc}}
+
+{{TPL:TextLab}}
+<input id="{{_field_id}}" type="text" name="{{_field_name}}" value="{{_field_value}}"{{_misc}}/>
+<label for="{{_field_id}}">{{_desc}}</label>
+{{/TPL:TextLab}}
+
+{{TPL:Check}}
+<input id="{{_field_id}}" name="{{_field_name}}" type="checkbox"  value="{{_field_value}}"{{_misc}}/>
+{{/TPL:Check}}
+
+{{TPL:CheckLab}}
+<input id="{{_field_id}}" type="checkbox" name="{{_field_name}}"  value="{{_field_value}}"{{_misc}}/>
+<label for="{{_field_id}}">{{_desc}}</label>
+{{/TPL:CheckLab}}
+
+{{TPL:CheckStd}}
+<input type="hidden" name="{{_field_name}}" value="{{_empty_value}}"/>
+<input id="{{_field_id}}" name="{{_field_name}}" type="checkbox"  value="{{_field_value}}"{{_misc}}/>
+{{/TPL:CheckStd}}
+
+{{TPL:CheckStdLab}}
+<input type="hidden" name="{{_field_name}}" value="{{_empty_value}}"/>
+<input id="{{_field_id}}" name="{{_field_name}}" type="checkbox"  value="{{_field_value}}"{{_misc}}/>
+<label for="{{_field_id}}">{{_desc}}</label>
+{{/TPL:CheckStdLab}}
+
+{{TPL:Upload}}
+<input type="file" name="{{_field_name}}"{{_misc}}/>
+{{/TPL:Upload}}
+
+{{TPL:Submit}}
+<input type="submit" name="{{_field_name}}" value="{{_field_value}}"{{_misc}}/>
+{{/TPL:Submit}}
+
+{{TPL:InputButton}}
+<input type="button" name="{{_field_name}}" value="{{_field_value}}"{{_misc}}/>
+{{/TPL:InputButton}}
+
+{{TPL:Button}}
+<button type="button" name="{{_field_name}}"{{_misc}}>{{_field_value}}</button>
+{{/TPL:Button}}
+
+{{TPL:CalendarBasic}}
+<a href="javascript:;" onclick="popUpCalendar(this, document.{{_calForm}}.{{_field_name}}, '{{_calDateFormat}}','{{_calAlign}}');{{_calOnclickBonus}}return false;"{{_misc}}><img class="block" src="{{/theme/}}images/calendar.gif" alt="[календарь]" align="top" border="0" height="20" vspace="1" width="23"/></a>
+{{/TPL:CalendarBasic}}
+
+{{TPL:Calendar0}}
+<a href="javascript:;" onclick="popUpCalendar(this, document.getElementById('{{_calFieldID}}'), '{{_calDateFormat}}','{{_calAlign}}');{{_calOnclickBonus}}return false;"{{_misc}}><img class="block" src="{{/theme/}}images/calendar.gif" alt="[календарь]" align="top" border="0" height="20" vspace="1" width="23"/></a>
+{{/TPL:Calendar0}}
+
+{{TPL:Calendar1}}
+<a href="javascript:;" onclick="popUpCalendar(this, document.getElementsByName('{{_field_name}}')[0], '{{_calDateFormat}}','{{_calAlign}}');{{_calOnclickBonus}}return false;"{{_misc}}><img class="block" src="{{/theme/}}images/calendar.gif" alt="[календарь]" align="top" border="0" height="20" vspace="1" width="23"/></a>
+{{/TPL:Calendar1}}

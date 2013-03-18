@@ -1,0 +1,19 @@
+
+<div align="center" style="vertical-align:middle;">
+<form name="_f_login" action="" method="post">
+  {{__form_present}}
+  <table class="table login" style="width:auto;" cellspacing="0">
+    <thead>
+      <tr>
+        <th class="teri">Логин : </th>
+        <th>{{txtLogin}}</th>
+      </tr>
+      <tr>
+        <th class="teri">Пароль : </th>
+        <th>{{txtPwd}}</th>
+      </tr>
+    </thead>
+  </table>
+        <input type="submit" onclick="this.form.submit();" value="вход"  style="color:#000; background-color:#fff;" onmousedown="this.value='загрузка...';" onmouseover="this.style.backgroundColor='#ccc';" onmouseout="this.style.backgroundColor='#fff';this.style.color='#000';"/>
+</form>
+</div>

@@ -1,0 +1,27 @@
+html, body {
+	height:100%;
+	padding:0;
+	margin:0;
+	background:white;
+	font:11px verdana;
+	}
+
+body {
+	margin:15px 40px;
+	}
+
+#banner {
+	position:absolute;
+	top:0px; left:0px;
+	height:100%;
+	width:19px;
+	background:black url(http://youngpup.net/img/logo.gif) top left no-repeat;
+	}
+
+h1 {
+	font:11px verdana;
+	font-weight:bold;
+	margin-top:0;
+	margin-bottom:1em;
+	color:#FB3B00;
+	}

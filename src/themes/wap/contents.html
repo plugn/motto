@@ -1,0 +1,182 @@
+{{TPL:proto}}
+
+{{@:NavBack}}
+  <card id="{{CARD:ID}}" title="{{CARD:Title}}">
+    <p>Выберите кинотеатр:<br />
+      <a href="/wap/afisha/index.php?theatre=536">Екатерининский</a><br />
+      <a href="/wap/afisha/index.php?theatre=405">Кино Колизей</a><br />
+      <a href="/wap/afisha/index.php?theatre=1641">Киноплекс в молле "Парк Хаус"</a><br />
+      <a href="/wap/afisha/index.php?theatre=978">ККТ "Космос"</a><br />
+      <a href="/wap/afisha/index.php?theatre=5">Мультиплекс "Салют"</a><br />
+      <a href="/wap/afisha/index.php?theatre=1">Премьер-зал Дома Кино</a><br />
+      <a href="/wap/afisha/index.php?theatre=849">Премьер-зал Знамя</a><br />
+      <a href="/wap/afisha/index.php?theatre=66">Премьер-зал Юго-Западный</a><br />
+      <br />
+      <a href="/wap/">[на главную]</a><br />
+    </p>
+  </card>
+{{/TPL:proto}}
+
+{{TPL:Home}}
+  <card id="{{CARD:ID}}" title="{{CARD:Title}}">
+    <p>
+      <a href="/wap/kino/place/">Кинотеатры</a><br />
+      <a href="/wap/kino/film/">Фильмы</a><br />
+    </p>
+    {{@:NavWapHome}}
+  </card>
+{{/TPL:Home}}
+
+{{TPL:Film}}
+{{@:NavBack}}
+  <card id="{{CARD:ID}}" title="{{CARD:Title}}">
+    <p><b>Фильм</b> : &quot;{{*title_rus}}&quot;<br />
+    {{_}}
+    </p>
+    {{@:NavKinoHome}}
+  </card>
+{{/TPL:Film}}
+{{TPL:Film_Empty}} {{@:StdEmpty0}} {{/TPL:Film_Empty}}
+
+{{TPL:Film_Item}}
+ {{*Places}}<br />
+{{/TPL:Film_Item}}
+
+{{TPL:FilmList}}
+{{@:NavBack}}
+  <card id="{{CARD:ID}}" title="{{CARD:Title}}">
+    <p>Выберите фильм:<br />
+    {{_}}
+    </p>
+    {{@:NavKinoHome}}
+  </card>
+{{/TPL:FilmList}}
+{{TPL:FilmList_Empty}} {{@:StdEmpty0}} {{/TPL:FilmList_Empty}}
+
+{{TPL:FilmList_Item}}
+     <a href="/wap/kino/film/{{*film_id}}">{{*title_rus}}</a><br />
+{{/TPL:FilmList_Item}}
+
+
+{{TPL:Places}}
+{{_}}
+{{/TPL:Places}}
+
+{{TPL:Places_Item}}
+  <br />
+  <b>площадка</b> : <a href="/wap/kino/place/{{*place_id}}/">{{place_name}}</a><br />
+  <b>зал</b> : {{hall_name}}<br />
+  <b>сеансы</b> : {{ShowTime}}<br />
+{{/TPL:Places_Item}}
+
+{{TPL:Places_Empty}}&nbsp;нет сеансов{{/TPL:Places_Empty}}
+
+{{TPL:ShowTime}}{{_}}{{/TPL:ShowTime}}
+{{TPL:ShowTime_Item}}{{start_time}}{{/TPL:ShowTime_Item}}
+{{TPL:ShowTime_Delim}}, {{/TPL:ShowTime_Delim}}
+{{TPL:ShowTime_Empty}} время сеансов не указано {{/TPL:ShowTime_Empty}}
+
+{{TPL:PlaceAddress}}
+<em>Адрес:</em> {{*place_address}}<br />
+{{/TPL:PlaceAddress}}
+
+{{TPL:PlaceTel}}
+<em>Телефоны:</em> {{*place_tel}}<br />
+{{/TPL:PlaceTel}}
+
+
+
+{{TPL:PlaceSchedule}}
+{{@:NavBack}}
+  <card id="{{CARD:ID}}" title="{{CARD:Title}}">
+    <p><b>{{place_name}}</b><br />
+    <br />
+    {{PlaceAddress}}
+    {{PlaceTel}}
+{{Places}}
+    </p>
+    {{@:NavKinoHome}}
+  </card>
+{{/TPL:PlaceSchedule}}
+
+{{TPL:PlaceFilms}}
+<br />
+<em>{{ShowDate}}</em><br />
+{{_}}
+{{/TPL:PlaceFilms}}
+
+{{TPL:PlaceFilms_Item}}
+<a href="/wap/kino/film/{{film_id}}">{{*title_rus}}</a><br />
+<b>зал</b> : {{*hall_name}}<br />
+<b>сеансы</b> : {{*ShowTime}}<br />
+{{/TPL:PlaceFilms_Item}}
+
+{{TPL:PlaceFilms_Empty}}&nbsp;нет сеансов<br />{{/TPL:PlaceFilms_Empty}}
+
+{{TPL:PlaceList}}
+{{@:NavBack}}
+  <card id="{{CARD:ID}}" title="{{CARD:Title}}">
+    <p>Выберите площадку:<br />
+{{_}}
+    </p>
+    {{@:NavKinoHome}}
+  </card>
+{{/TPL:PlaceList}}
+
+{{TPL:PlaceList_Item}}
+    <a href="/wap/kino/place/{{*place_id}}">{{*place_name}}</a><br />
+{{/TPL:PlaceList_Item}}
+{{TPL:PlaceList_Empty}} {{@:StdEmpty0}} {{/TPL:PlaceList_Empty}}
+
+
+
+
+{{TPL:FilmSchedule}}
+{{@:NavBack}}
+  <card id="{{CARD:ID}}" title="{{CARD:Title}}">
+    <p><b>Фильм</b> : &quot;{{*title_rus}}&quot;<br />
+    <em>{{announce}}</em><br />
+{{Places}}
+    </p>
+    {{@:NavKinoHome}}
+  </card>
+{{/TPL:FilmSchedule}}
+
+{{TPL:FilmPlaces}}
+<br />
+<em>{{ShowDate}}</em><br />
+{{_}}
+{{/TPL:FilmPlaces}}
+
+{{TPL:FilmPlaces_Item}}
+<a href="/wap/kino/place/{{place_id}}">{{*place_name}}</a><br />
+<b>зал</b> : {{*hall_name}}<br />
+<b>сеансы</b> : {{*ShowTime}}<br />
+{{/TPL:FilmPlaces_Item}}
+
+{{TPL:FilmPlaces_Empty}}&nbsp;нет сеансов<br />{{/TPL:FilmPlaces_Empty}}
+
+
+<!--  ******************************************************************************** -->
+
+{{TPL:NavBack}}
+  <template>
+    <do type="prev" label="Back"><prev/></do>
+  </template>
+{{/TPL:NavBack}}
+
+{{TPL:StdEmpty0}}нет данных<br />{{/TPL:StdEmpty0}}
+
+{{TPL:NavWapHome}}
+      <p>
+      <br />
+      [ <a href="/wap/">на главную</a> ]<br />
+      </p>
+{{/TPL:NavWapHome}}
+
+{{TPL:NavKinoHome}}
+      <p>
+      <br />
+      [ <a href="/wap/kino/">афиша кино</a> | <a href="/wap/">на главную</a> ]<br />
+      </p>
+{{/TPL:NavKinoHome}}

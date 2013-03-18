@@ -1,0 +1,390 @@
+{{TPL:Page}}
+{{@:Wrap1Start}}
+
+  {{RefForm}}
+  {{RefList}}
+  {{RefSet}}
+  {{RefCtrl}}
+
+{{@:Wrap1End}}
+{{/TPL:Page}}
+
+{{TPL:PageCom}}
+{{@:Wrap1Start}}
+
+  {{ComForm}}
+  {{ComList}}
+
+{{@:Wrap1End}}
+{{/TPL:PageCom}}
+
+
+
+{{TPL:Wrap1Start}}
+<script language="javascript" type="text/javascript" src="{{/}}../themes/common/tinymce/jscripts/tiny_mce/tiny_mce.js"></script>
+<p><b>{{Page:Title}}</b></p>
+{{/TPL:Wrap1Start}}
+{{TPL:Wrap1End}} {{/TPL:Wrap1End}}
+
+
+{{TPL:Wrap0Start}}
+<table class="w100" cellspacing="0" cellpadding="0" border="0">
+ <tr>
+   <td class="left">
+   </td>
+   <td colspan="2"  class="middle title">
+     <h1>{{Page:Header}}</h1>
+     <div class="about">{{Page:Title}}</div>
+
+   </td>
+   <td class="right">
+   </td>
+ </tr>
+
+<tr>
+    <td> &nbsp;</td>
+    <td class="body">
+{{/TPL:Wrap0Start}}
+
+{{TPL:Wrap0End}}
+    </td>
+    <td class="right">&nbsp;</td>
+  </tr></table>
+{{/TPL:Wrap0End}}
+
+{{TPL:ComForm}}
+
+  <form action="{{/}}{{/uri/}}" method="post" enctype="multipart/form-data">
+    {{__form_present}}
+    {{hdnId}}
+    <table class="bg-e" style="width:600px;"><tr>
+        <td style="width:150px;">раздел</td>
+        <td>{{formSelectRef}}&nbsp;</td>
+      </tr>
+      <tr>
+        <td>компания</td>
+        <td>{{formTitle}}&nbsp;</td>
+      </tr>
+
+      {{?formAbout}}
+      <tr>
+        <td>анонс</td>
+        <td>{{formAbout}}&nbsp;</td>
+      </tr>
+      {{?/}}
+
+      {{?formDescription}}
+      <tr>
+         <td>подробности</td>
+         <td>{{formDescription}}&nbsp;</td>
+      </tr>
+      {{?/}}
+
+      {{?formAddress}}
+      <tr>
+         <td>адрес</td>
+         <td>{{formAddress}}&nbsp;</td>
+      </tr>
+      {{?/}}
+      {{?formPhone}}
+      <tr>
+        <td>телефон</td>
+        <td>{{formPhone}}&nbsp;</td>
+      </tr>
+      {{?/}}
+      {{?formFax}}
+      <tr>
+        <td>факс</td>
+        <td>{{formFax}}&nbsp;</td>
+      </tr>
+      {{?/}}
+      {{?formEmail}}
+      <tr>
+        <td>e-mail</td>
+        <td>{{formEmail}}&nbsp;</td>
+      </tr>
+      {{?/}}
+      {{?formWebsite}}
+      <tr>
+        <td>сайт</td>
+        <td>{{formWebsite}}&nbsp;</td></tr>
+      </tr>
+      {{?/}}
+      {{?formContract_id}}
+      <tr>
+        <td>контракт</td>
+        <td>{{formContract_id}}&nbsp;</td>
+      </tr>
+      {{?/}}
+      {{?formLogo}}
+      <tr>
+        <td>лого</td>
+        <td>{{formLogo}}&nbsp;<br />
+            {{Pic}}
+        </td>
+      </tr>
+      {{?/}}
+
+      {{?formPicture}}
+      <tr>
+        <td>картинка</td>
+        <td>{{formPicture}}&nbsp;<br />
+            {{Picture}}
+        </td>
+      </tr>
+      {{?/}}
+      {{?formPrice}}
+      <tr>
+        <td>прайс</td>
+        <td><script language="javascript" type="text/javascript">
+            {{@js/tinymce/mods.js:cfgPrice}}
+            </script>
+            {{formPrice}}&nbsp;
+        </td>
+      </tr>
+      {{?/}}
+      <tr>
+      <tr><td colspan="2">
+      <input onclick="location.href='{{/}}{{/uri:0/}}/company/?_filtr_refid='+this.form._fdata_comref_id.value" type="button" value="список компаний"/>
+        |
+      {{formSubmit}}&nbsp;
+      </td></tr>
+    </table>
+  </form>
+
+{{PicArea}}
+
+{{/TPL:ComForm}}
+
+{{TPL:Pic}}
+{{formFileDrop}}
+<br />
+<div id="comImg"><img src="{{HttpPic}}" /></div>
+{{/TPL:Pic}}
+
+{{TPL:RefForm}}
+  <form action="{{/}}{{/uri/}}" method="post" enctype="multipart/form-data">
+    {{__form_present}}
+    {{hdnId}}
+
+    <table  style="width:400px;" class="bg-e"><tr><td style="width:150px;">
+        <tr><td>
+        название
+        </td><td>
+        {{formTitle}}
+        </td></tr><tr><td>
+        таг
+        </td><td>
+        {{formTag}}
+        </td></tr><tr><td>
+        иконка
+        </td><td>
+        {{formIco}}
+        {{RefPic}}
+        </td></tr>
+        <tr><td colspan="2">
+          <input onclick="location.href='{{/}}{{/uri:0/}}/refedit/'" type="button" value="список рубрик" /> |
+          <input type="submit" name="btnSave" value="{{btnSaveText}}" onclick="if (!this.form._fdata_title.value || !this.form._fdata_tag.value){ alert('заполните поля');return false;}" />
+        </td></tr>
+    </table>
+  </form>
+{{/TPL:RefForm}}
+
+
+{{TPL:RefList}}
+    <table class="bg-e" style="border:0px;">
+    {{_}}
+    </table>
+    <br />
+    <span><input style="font-size:x-small;" onclick="location.href='{{/}}{{/uri:0/}}/refadd/'" type="button" value=" добавить " /> </span>
+{{/TPL:RefList}}
+
+{{TPL:RefList_Item}}
+    <tr>
+        <td><a class="fg-2 bg-f" href="{{/}}{{/uri:0/}}/refedit/{{*id}}">{{*title}}</a></td>
+        <td class="fg-a bg-f">
+           [ <a class="fg-2 no-decor" onclick="return confirm('подтвердите удаление {{*title}}');" href="{{/}}{{/uri:0/}}/drop/ref/{{*id}}">x</a> ]
+        </td>
+    </tr>
+{{/TPL:RefList_Item}}
+
+{{TPL:RefList_Empty}}
+    <tr><td>
+            <div style="border: 1px dashed; #c0c0c0;"> список пуст. попробуйте другие режимы  </div>
+    </td></tr>
+{{/TPL:RefList_Empty}}
+
+
+{{TPL:RefEdit}}
+    {{SubNav}}<br />
+    <form name="showEdit" action="{{/}}{{/uri/}}/" method="post" enctype="multipart/form-data">
+    {{__form_present}}
+    {{hdnId}}
+        <table style="width: 500px;">
+                <tr>
+                        <td>Фильм</td>
+                        <td>{{formFilm}}</td>
+                </tr>
+        </table>
+    </form>
+{{/TPL:RefEdit}}
+
+
+{{TPL:RefSet}}
+  Набор полей: <br />
+  {{_}}
+{{/TPL:RefSet}}
+
+{{TPL:RefSet_Item}}
+  {{*Field}} / {{*Type}} <br />
+{{/TPL:RefSet_Item}}
+
+{{TPL:RefSet_Empty}} [ Ъ! список пуст ]  <!--   --> {{/TPL:RefSet_Empty}}
+
+{{TPL:RefCtrl}}
+        <script language="javascript" src="{{/theme/}}js/ljgroups.js" type="text/javascript"></script>
+        <div style="height: 1%;">
+<p><b>настройка полей в рубриках</b></p>
+<p></p>
+<form method="post" name="fg" action="{{/}}{{/uri/}}">
+  {{__form_present}}
+  <input name="mode" value="mask_save" type="hidden">
+  {{RefsHtml}}
+  {{GroupMasks}}
+
+<table cellspacing="5"><tbody>
+<tr valign="bottom">
+  <td nowrap="1"><strong>неактивные</strong></td>
+  <td> </td>
+  <td nowrap="1"><strong>активные</strong></td>
+</tr>
+<tr valign="top">
+  <td valign="middle">
+      <select name="list_out" multiple="1" size="15">
+         <option value="">---------------</option>
+      </select>
+   </td>
+   <td>
+      <input onclick="moveIn();" value="&gt;&gt;" type="button"><br /><br />
+      <input onclick="moveOut();" value="&lt;&lt;" type="button">
+  </td>
+  <td>
+    <select name="list_in" multiple="1" size="15">
+        <option value="">---------------</option>
+    </select>
+  </td>
+</tr>
+<tr>
+  <td colspan="3" nowrap="1"><strong>разделы:</strong></td>
+</tr>
+<tr>
+  <td colspan="3" nowrap="1">{{ListGroups}}</td>
+</tr>
+</tbody></table>
+
+<p><input value="Сохранить изменения" type="submit"></p>
+</form>
+
+        <div class="clear"></div>
+
+      </div>
+
+{{/TPL:RefCtrl}}
+
+{{TPL:ComAddCtrl}}
+<span><input style="font-size:x-small;" onclick="location.href='{{/}}{{/uri:0/}}/comadd/?{{/QS/}}'" type="button" value=" добавить " /> </span>
+{{/TPL:ComAddCtrl}}
+
+{{TPL:ComList}}
+
+<script>_intlStrings._originalText = "рубрика: ";_intlStrings._interfaceDirection="ltr";_intlStrings._interfaceAlign="left"</script>
+
+    <table class="bg-e">
+    <tr>
+    <td> фильтр: </td>
+    <td><form>{{optRefs}}</form></td>
+    </tr>
+    {{_}}
+    </table>
+   <br/>
+   {{@:ComAddCtrl}}
+{{/TPL:ComList}}
+
+{{TPL:ComList_Item}}
+      <tr>
+          <td> </td>
+          <td>
+<span onmouseover="_tipon(this)" onmouseout="_tipoff()"><span class="google-src-text" style="direction: ltr; text-align: left;">
+<font color="#cc0000" face="Trebuchet MS, Arial" size="2"><b>{{*reftitle}} </b></font></span>
+<a class="fg-2 bg-f" href="{{/}}{{/uri:0/}}/comedit/{{*id}}">{{*title}}</a></span>
+          </td>
+          <td class="fg-a bg-f"> [ <a class="fg-2 nodecor" onclick="return confirm('подтвердите удаление {{*title}}');" href="{{/}}{{/uri:0/}}/drop/com/{{*id}}">x</a> ]</td>
+      </tr>
+{{/TPL:ComList_Item}}
+
+{{TPL:ComList_Empty}}
+<tr><td> список пуст </td> </tr>
+{{/TPL:ComList_Empty}}
+
+{{TPL:Dummy}}
+    <p>** under construction **</p>
+{{/TPL:Dummy}}
+
+
+
+{{TPL:NoPicArea}}
+                <div class="appear" style="position:absolute; top:90px; right:100px;">
+                <div style="border:1px dashed #999;padding:5px;color:maroon;"><p><em>Необходимо создать новый фильм прежде,<br /> чем прикреплять к нему изображения.</p></div>
+                </div>
+{{/TPL:NoPicArea}}
+
+{{TPL:PicArea}}
+                <script language="javascript">document.fpicCnt=1;</script>
+<br />
+<br />
+
+                <div class="appear" style="position:absolute; top:90px; right:100px;">
+                <form action="{{/}}{{/uri:0/}}/{{/uri:1/}}/{{/uri:2/}}/pic/" method="post" enctype="multipart/form-data">
+                <table class="table" style="border:1px dashed #555;width:400px;" cellpadding="0" cellspacing="0">
+                <thead><tr><th colspan="2" style="background:#ccc;"> Изображения </th></tr></thead>
+                <tbody>
+                  <tr>
+                    <td class="teri">Загрузка<br />
+                    <span style="font-size:x-small;"><b>только:</b> jpeg, jpg, jpe, gif, png</span>
+                    </td>
+                    <td class="edite">{{formUpload}}</td>
+                  </tr>
+
+{{PicF}}
+                  <tr>
+                    <td class="add" colspan="2">
+                      <input type="submit" name="btnPicSave" value="Сохранить" />
+                    </td>
+                  </tr>
+                  </tbody></table>
+                </form>
+                </div>
+{{/TPL:PicArea}}
+
+{{TPL:PicF}}
+                <thead><tr><th colspan="2" style="background:#ccc;"> существующие : </th></tr></thead>
+{{_}}
+{{/TPL:PicF}}
+
+{{TPL:PicF_Item}}
+                <tr>
+                        <td> {{HttpPic}}<br />
+                             {{formFileDrop}}
+                         </td>
+                        <td class="edite">
+                        <a href="javascript:;" onclick="popup('http://'+window.location.host+'{{HttpPic}}', 'p0pup', {{pic_width}}, {{pic_height}}, 700, 35);">
+                            <img style="border:0px;" src="{{HttpPicThumb}}" width="120"></a>
+                        </td>
+                </tr>
+{{/TPL:PicF_Item}}
+{{TPL:PicF_Delim}}
+<tr><td colspan="2" style="background:#ccc;"><img height="2" src="{{/theme/}}images/e.gif"/></td></tr>
+{{/TPL:PicF_Delim}}
+
+{{TPL:PicF_Empty}}<tr><td colspan="2"> <div style="padding:5px;border:1px #999 dashed;"> изображения не загружены. </div> </td></tr>
+{{/TPL:PicF_Empty}}

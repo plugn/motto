@@ -1,0 +1,22 @@
+/*
+*/
+
+.w100 { width:100%; }
+.main {   }
+.menu-top {   }
+.body-top {   }
+
+.table    {   }
+.appear    { display:block; }
+.disappear { display:none; }
+
+.padhor3   { padding-left:3px;padding-right:3px; }
+.padhor5   { padding-left:5px;padding-right:5px; }
+.padhor10  { padding-left:10px;padding-right:10px; }
+
+#picarea   { position:absolute; top:120px; left:650px; }
+#timectrl  { position:absolute; top:100px; left:650px; }
+
+#response { display:none; }
+#pgsbar   { visibility:hidden;position:absolute;right:8%;top:20px; padding:2px 2px 2px 2px; width:auto; height:31px; border: 1px #0f0 dotted; background-color:#eee;}
+

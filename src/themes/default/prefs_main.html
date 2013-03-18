@@ -1,0 +1,177 @@
+{{TPL:Main}}
+                <h2>{{HTMLTitle}}</h2>
+                <ul>
+                  <li><a href="{{/}}{{/uri:0/}}/cinemas/">Кинотеатры: управление</a></li>
+                  <!-- <li><a href="{{/}}{{/uri:0/}}/film_editors/">Кинотеатры: редколлегия</a></li> -->
+                </ul>
+
+{{/TPL:Main}}
+
+{{TPL:KinoUsers}}
+                <h2>{{HTMLTitle}}</h2>
+                <h4>Редакторы фильмов</h4>
+                <p>Отмечены те, кто может редактировать <a href="{{/}}films/">список фильмов</a>.</p>
+                <form action="{{/}}{{/uri:0/}}/{{/uri:1/}}/" method="post" enctype="multipart/form-data">
+                {{__form_present}}
+                <table style="border:1px dashed #555;width:500px;" cellpadding="0" cellspacing="0">
+                        <tr style="background:#aaa;">
+                                <th class="padhor5" style="text-align:left;">кинотеатр</th>
+                                <th class="padhor5" style="text-align:center;">доступ</th>
+                        </tr>
+{{_}}
+                        <tr style="background:#aaa;">
+                               <td colspan="2" class="padhor5"><input name="btnSave" type="submit" value="Сохранить"/> </td>
+                        </tr>
+                </table>
+                </form>
+{{/TPL:KinoUsers}}
+
+
+{{TPL:KinoUsers_Item}}
+                        <tr{{trStyle}}>
+                                <td class="padhor5">{{place_name}}</td>
+                                <td class="padhor5" style="text-align:center;">{{formCheck}}</td>
+                        </tr>
+
+{{/TPL:KinoUsers_Item}}
+
+{{TPL:KinoUsers_Empty}}
+                        <tr>
+                                <td colspan="2"> Караул! <br /> Кинотеатры не обнаружены! </td>
+                        </tr>
+{{/TPL:KinoUsers_Empty}}
+
+
+{{TPL:MoviePlaces}}
+                <h2>{{HTMLTitle}}</h2>
+                <p><b>Кинотеатры.</b> Управление списком и правами доступа к <a href="{{/}}films/">списку фильмов</a>.</p>
+                <script>document.btnsAddedNum=0;</script>
+                <form id="formEd" action="{{/}}{{/uri:0/}}/{{/uri:1/}}/" method="post" enctype="multipart/form-data"{{formHdrMisc}}>
+                {{__form_present}}
+                <table style="border:0px dashed #555;width:550px;" cellpadding="0" cellspacing="0">
+                        <tr style="background:#aaa;">
+                                <th class="padhor5" style="text-align:left;">кинотеатр</th>
+                                <th class="padhor5" style="text-align:center;"><nobr>фильм-ред</nobr></th>
+                                <th class="padhor5" style="text-align:center;">удалить</th>
+                                <th class="padhor5" style="text-align:center;"> <b>*</b> </th>
+                        </tr>
+{{_}}
+                        <div id="cnmTR" style="">
+                        <tr>
+                                <td class="padhor5"><div id="btnsAddWrapper"> </div></td>
+                                <td class="padhor5" colspan="3">&nbsp;</td>
+                        </tr>
+                        </div>
+
+                        <tr style="background:#aaa;">
+                               <td class="padhor5"><input name="btnAdd" type="button" value=" + "
+                                    onclick="return cnmTRowAdd('btnsAddWrapper');"/> <input name="btnAdd" type="button" value=" - "
+                                    onclick="return cnmTRowDrop();"/></td>
+                               <td colspan="3" class="padhor5"><input name="btnSave" type="submit" value="Сохранить"/> </td>
+                        </tr>
+                </table>
+                </form>
+{{/TPL:MoviePlaces}}
+
+
+{{TPL:MoviePlaces_Item}}
+                        <tr{{trStyle}}>
+                                <td class="padhor5"><nobr>
+<a style="color:#f00;" href="javascript:;" title="отменить ввод" onclick="getNode('formEd').reset();"><span{{spanMisc}}></span></a> {{formName}}</nobr>
+                                </td>
+                                <td class="padhor5" style="text-align:center;" width="40">{{formCheck}}</td>
+                                <td class="padhor5" style="text-align:center;" width="40">[ <a href="{{/}}{{/uri:0/}}/{{/uri:1/}}/drop/{{place_id}}" onclick="return confirm('Вы уверены в уничтожении выбранной позиции ?');">x</a> ]</td>
+                                <td class="padhor5" style="text-align:center;" width="40"><a href="{{/}}{{/uri:0/}}/place/{{place_id}}">&raquo;</a>
+                                </td>
+                        </tr>
+
+{{/TPL:MoviePlaces_Item}}
+
+{{TPL:MoviePlaces_Empty}}
+                        <tr>
+                                <td colspan="3"> Караул! <br /> Кинотеатры не обнаружены! </td>
+                        </tr>
+{{/TPL:MoviePlaces_Empty}}
+
+
+{{TPL:Place}}
+                <h2>{{HTMLTitle}}</h2>
+                <p><a href="{{/}}prefs/cinemas/"><b>Кинотеатры</b></a> / Редактирование</p>
+
+                <form action="{{/}}{{/uri/}}" method="post" enctype="multipart/form-data">
+                {{__form_present}}
+                {{placeID}}
+                <table style="width:500px;">
+                  <tr>
+                    <td>Название</td>
+                    <td>{{place_name}}</td>
+                  </tr>
+                  <tr>
+                    <td>Контактные лица</td>
+                    <td>{{place_contact}}</td>
+                  </tr>
+                  <tr>
+                    <td>Телефон</td>
+                    <td>{{place_tel}}</td>
+                  </tr>
+                  <tr>
+                    <td>Контактные телефоны</td>
+                    <td>{{place_contacttel}}</td>
+                  </tr>
+                  <tr>
+                    <td>Адрес:</td>
+                    <td>{{place_address}}</td>
+                  </tr>
+                  <tr>
+                    <td>Сайт:</td>
+                    <td>{{place_URL}}</td>
+                  </tr>
+                  <tr>
+                    <td>Дополнительно:</td>
+                    <td>{{place_comment}}</td>
+                  </tr>
+                  <tr>
+                    <td>e-mail:</td>
+                    <td>{{place_email}}</td>
+                  </tr>
+                  <tr>
+                    <td>логин:</td>
+                    <td>{{place_login}}</td>
+                  </tr>
+                  <tr>
+                    <td>пароль:</td>
+                    <td>{{place_passwd}}</td>
+                  </tr>
+                  <tr>
+                    <td>Логотип</td>
+                    <td>{{formUpload}}</td>
+                  </tr>
+
+                  {{Pic}}
+
+                  <tr>
+                    <td>Изображение</td>
+                    <td>{{formUpload2}}</td>
+                  </tr>
+
+                  {{Pic2}}
+
+                  <tr>
+                    <td colspan="2">
+                    <input name="btnSave" type="submit" value="Готово" />
+                  </tr>
+                </table>
+                </form>
+
+{{/TPL:Place}}
+
+
+{{TPL:Pic}}
+                        <tr>
+                                <td class="teri"> &nbsp; </td>
+                                <td class="edite">
+                                    <div> <img src="{{HttpPic}}" /> </div>
+                                    <br />{{formFileDrop}}
+                                </td>
+                        </tr>
+{{/TPL:Pic}}

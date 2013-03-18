@@ -1,0 +1,278 @@
+{{TPL:Edit}}
+                <script language="javascript" src="{{/theme/}}js/mAjaxCB.js" type="text/javascript"></script>
+
+                <h1 style="clear:both;">{{client_name}}</h1>
+                <h2>{{HTMLTitle}}</h2>
+
+                <div id="pgsbar" style="position:absolute; top:30px; left: 650px;"></div>
+
+                <!-- <form action="{{/}}{{/uri:0/}}/{{/uri:1/}}/" method="post" enctype="multipart/form-data"> -->
+                <form id="formEd" action="{{/}}{{/uri/}}/" method="post" enctype="multipart/form-data"
+                      onsubmit="return validateIsEmpty(['title_rus'], ['_nmVa']);">
+{{__form_present}}
+{{hdnId}}
+                <table class="table" style="width:500px;" cellpadding="0" cellspacing="0">
+                        <tr>
+                                <th>{{CurrOperation}}</th>
+                                <th>&nbsp;</th>
+                        </tr>
+                        <tr>
+                                <td class="teri">
+                                   <nobr>Название (рус.) <a style="color:#f00;" href="javascript:;" title="отменить ввод" onclick="getNode('formEd').reset();"><span id="_nmVa"></span></a> <span style="color:red;" title="обязательное поле">*</span> </nobr>
+                                </td>
+                                <td class="edite">{{formTitleRus}} </td>
+                        </tr>
+                        <tr>
+                                <td class="teri">Название (англ.)</td>
+                                <td class="edite">{{formTitle}}</td>
+                        </tr>
+                        <tr>
+                                <td class="teri"> &nbsp; </td>
+                                <td class="edite">{{formPremier}}</td>
+                        </tr>
+                        <tr>
+                                <td class="teri">Год</td>
+                                <td class="edite">{{formYear}}</td>
+                        </tr>
+                        <tr>
+                                <td class="teri">Страна</td>
+                                <td class="edite">{{formCountry}}</td>
+                        </tr>
+
+                        <tr>
+                                <td class="teri">Анонс</td>
+                                <td class="edite">{{formAnnounce}}</td>
+                        </tr>
+
+                        <tr>
+                                <td class="teri">Описание</td>
+                                <td class="edite">{{formDesc}}</td>
+                        </tr>
+                        <tr>
+                                <td class="teri">В ролях</td>
+                                <td class="edite">{{formRole}}</td>
+                        </tr>
+                        <tr>
+                                <td class="teri">Жанр</td>
+                                <td class="edite">{{formGenre}}</td>
+                        </tr>
+                        <tr>
+                                <td class="teri">Режисcер</td>
+                                <td class="edite">{{formDirector}}</td>
+                        </tr>
+                        <tr>
+                                <td class="teri">Композитор</td>
+                                <td class="edite">{{formComposer}}</td>
+                        </tr>
+                        <tr>
+                                <td class="teri">Длительность, мин</td>
+                                <td class="edite">{{formDuration}}</td>
+                        </tr>
+{{FilmWeight_ROW}}
+                        <tr>
+                                <td class="teri">Статус</td>
+                                <td class="edite">{{formStatus}}</td>
+                        </tr>
+                        <tr>
+                                <td class="teri">Видеоролик <br />
+                                <span style="font-size:x-small;">( код для форумов c <b>vd.reborn.ru</b> )</span>
+                                </td>
+                                <td class="edite">{{formVideo}}</td>
+                        </tr>
+                        {{?VideoReady}}
+                        <tr>
+                                <td> </td>
+                                <td><a onclick="elSwitchAdv('trvideo','');if(getNode('fvideo').value=='') elSetup('fvideo',{'value':'{{videoCode}}'} ); else elSetup('fvideo',{'value':''} );" href="javascript:;" >удалить</a> </td>
+
+                        </tr>
+                        <tr id="trvideo">
+                                <td> </td>
+                                <td>{{VideoPlayer}}</td>
+                        </tr>
+                        {{?/}}
+
+                        <tr>
+                                <td class="teri"> Изображения </td>
+                                <td class="edite">
+                                        <input type="button" name="" value="Управление" onclick="cssToggle('picarea', ['appear','disappear'] );" />
+                                </td>
+                        </tr>
+
+                        <tr>
+                                <td class="add" colspan="2"> &nbsp; </td>
+                        </tr>
+
+                        <tr>
+                                <td class="add" colspan="2">
+                                        <input type="reset" name="" value="Сброс" />
+                                        <input type="submit" name="btnFilmSave" value="Сохранить" />
+                                </td>
+                        </tr>
+                </table>
+                </form>
+
+{{PicArea}}
+
+{{/TPL:Edit}}
+
+{{TPL:FilmWeight_ROW}}
+
+                        <tr>
+                                <td class="teri">Вес ( 0..100 ) </td>
+                                <td class="edite">{{formWeight}}</td>
+                        </tr>
+{{/TPL:FilmWeight_ROW}}
+
+
+
+{{TPL:NoPicArea}}
+                <div id="picarea" class="appear">
+                <div style="border:1px dashed #999;padding:5px;color:maroon;"><p><em>Необходимо создать новый фильм прежде,<br /> чем прикреплять к нему изображения.</p></div>
+                </div>
+{{/TPL:NoPicArea}}
+
+{{TPL:PicArea}}
+                <script language="javascript">document.fpicCnt=1;</script>
+<br />
+<br />
+                <div id="pgsbar" style="position:absolute;top:30px;left:650px;"></div>
+                <div id="picarea" class="appear">
+                <form action="{{/}}{{/uri:0/}}/pic/{{/uri:2/}}" method="post" enctype="multipart/form-data">
+                {{__form_present}}
+                <table class="table" style="border:1px dashed #555;width: 500px;" cellpadding="0" cellspacing="0">
+                <thead><tr><th colspan="2" style="background:#ccc;"> Изображения </th></tr></thead>
+                <tbody>
+
+
+                  <tr>
+                    <td class="teri">Загрузка<br />
+                    <span style="font-size:x-small;"><b>только:</b> jpeg, jpg, jpe, gif, png</span>
+                    </td>
+                    <td class="edite">{{formUpload}}</td>
+                  </tr>
+
+
+
+{{Pic}}
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td><div id="response"></div></td>
+                  </tr><tr>
+                    <td class="add" colspan="2">
+                      <input type="submit" name="btnPicSave" value="Сохранить" />
+                    </td>
+                  </tr>
+                  </tbody></table>
+                </form>
+                </div>
+{{/TPL:PicArea}}
+
+{{TPL:Pic}}
+                <thead><tr><th colspan="2" style="background:#ccc;"> существующие : </th></tr></thead>
+{{_}}
+{{/TPL:Pic}}
+
+{{TPL:Pic_Item}}
+                <tr>
+                        <td> {{HttpPic}}<br />
+                             {{formFileDrop}}
+                         </td>
+                        <td class="edite">
+                        <a href="javascript:;" onclick="popup('http://'+window.location.host+'{{HttpPic}}', 'p0pup', {{pic_width}}, {{pic_height}}, 700, 35);">
+                            <img style="border:0px;" src="{{HttpPicThumb}}" width="120"></a>
+                        </td>
+                </tr>
+{{/TPL:Pic_Item}}
+{{TPL:Pic_Delim}}
+<tr><td colspan="2" style="background:#ccc;"><img height="2" src="{{/theme/}}images/e.gif"/></td></tr>
+{{/TPL:Pic_Delim}}
+
+{{TPL:Pic_Empty}}<tr><td colspan="2"> <div style="padding:5px;border:1px #999 dashed;"> изображения не загружены. </div> </td></tr>
+{{/TPL:Pic_Empty}}
+
+{{TPL:PicZ}}
+                        <tr>
+                                <td class="edite">
+                                    <div> <img src="{{HttpPic}}" /> </div>
+                                    <br />{{formFileDrop}}
+                                </td>
+                        </tr>
+
+{{/TPL:PicZ}}
+
+
+
+{{TPL:FormFilter}}
+                <form action="" method="get">
+
+                {{__form_present}}
+                {{formPlace}}
+                </form>
+{{/TPL:FormFilter}}
+
+{{TPL:OrderCtrl}}
+{{_}}
+{{/TPL:OrderCtrl}}
+
+{{TPL:OrderCtrl_Item}}<a class="" href="{{/}}{{/uri/}}?{{*orderQS}}">{{*orderTxt}}</a>
+{{/TPL:OrderCtrl_Item}}
+
+{{TPL:OrderCtrl_Curr}}<b>{{*orderTxt}}</b>
+{{/TPL:OrderCtrl_Curr}}
+
+{{TPL:OrderCtrl_Delim}} | {{/TPL:OrderCtrl_Delim}}
+{{TPL:OrderCtrl_Empty}}<!-- empty-->{{/TPL:OrderCtrl_Empty}}
+
+{{TPL:List}}
+                <h1 style="clear:both;">{{client_sys_name}}</h1>
+                <h2>{{HTMLTitle}}</h2>
+<input type="button" style="font-size:x-small;" onclick="location.href='{{/}}{{href:create}}'" value="создать новый" />
+<span class="fg-2 bg-e">{{OrderCtrl}}</span>
+
+<br />
+
+                <table class="bg-e" style="">
+{{_}}
+                </table>
+
+{{/TPL:List}}
+
+{{TPL:List_Item}}
+                        <tr>
+                                <td class="name"><a class="fg-2 bg-f" title="Редактировать" href="{{/}}{{href:edit}}">{{title_rus}}</a> <em>{{weight}}</em> </td>
+                                <td class="fg-a bg-f">  [ <a class="fg-2 no-decor" href="{{/}}{{href:drop}}" title="Удалить" {{href:drop.confirm}}>x</a> ] </td>
+                        </tr>
+{{/TPL:List_Item}}
+
+{{TPL:List_Empty}}
+                        <tr><td colspan="2">
+                                <div style="border: 1px dashed; #c0c0c0;"> список пуст. попробуйте другие режимы  </div>
+                        </td></tr>
+{{/TPL:List_Empty}}
+
+
+
+{{TPL:List0}}
+                <h1 style="clear:both;">{{client_sys_name}}</h1>
+                <h2>{{HTMLTitle}}</h2>
+
+<b>список</b> | <input type="button" style="font-size:x-small;" onclick="location.href='{{/}}{{href:create}}'" value="создать новый" />
+<br />
+
+                <table class="bg-e" style="width: 500px;">
+{{_}}
+                </table>
+
+{{/TPL:List0}}
+
+{{TPL:List0_Item}}
+                        <tr>
+                                <td class="name"><a class="fg-2 bg-f" title="Редактировать" href="{{/}}{{href:edit}}">{{title_rus}}</a></td>
+                        </tr>
+{{/TPL:List0_Item}}
+
+{{TPL:List0_Empty}}
+                        <tr><td>
+                                <div style="border: 1px dashed; #c0c0c0;"> список пуст. попробуйте другие режимы  </div>
+                        </td></tr>
+{{/TPL:List0_Empty}}

@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+
+<html>
+<head>
+<script language="javascript" src="dom-drag.js"></script>
+</head>
+
+<body>
+
+<img id="p" src="gfx/p.gif" style="position:absolute; left:50px; bottom:20px;" />
+<img id="g" src="gfx/g.gif" style="position:absolute; right:20px; bottom:100px;" />
+<img id="b" src="gfx/b.gif" style="position:absolute; left:60px; top:20px;" />
+
+<script language="javascript">
+        Drag.init(document.getElementById("p"), null, null, null, null, null, false, true);
+        Drag.init(document.getElementById("g"), null, null, null, null, null, true, true);
+        Drag.init(document.getElementById("b"), null, null, null, null, null, false, false);
+</script>
+</body>
+</html>
+
+

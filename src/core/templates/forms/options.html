@@ -1,0 +1,63 @@
+{{TPL:Select}}
+<select name="{{_field_name}}" id="{{_field_name}}"{{_misc}}>
+{{_}}
+</select>
+{{/TPL:Select}}
+
+{{TPL:Select_Item}}
+<option value="{{_field_value}}">{{_field_title}}</option>
+{{/TPL:Select_Item}}
+
+{{TPL:Select_Curr}}
+<option value="{{_field_value}}" selected="selected">{{_field_title}}</option>
+{{/TPL:Select_Curr}}
+
+{{TPL:Select_Empty}}
+{{/TPL:Select_Empty}}
+
+{{TPL:Select_Delim}} *** {{/TPL:Select_Delim}}
+
+
+
+
+{{TPL:Radio}}
+<table class="options- w100" cellspacing="2" cellpadding="0" border="0">
+  {{_}}
+</table>
+{{/TPL:Radio}}
+{{TPL:Radio_Empty}}
+{{/TPL:Radio_Empty}}
+
+{{TPL:Radio_Item}}
+ <tr>
+   <td><input type="radio" name="{{_field_name}}" value="{{_field_value}}" id="id_{{_field_name}}_{{_Num}}" {{_misc}}/></td>
+   <td class="w100"><label for="id_{{_field_name}}_{{_Num}}">{{_field_title}}</label></td>
+ </tr>
+{{/TPL:Radio_Item}}
+
+{{TPL:Radio_Curr}}
+ <tr>
+   <td><input type="radio" name="{{_field_name}}" value="{{_field_value}}" id="id_{{_field_name}}_{{_Num}}" checked="checked" {{_misc}}/></td>
+   <td class="w100"><label for="id_{{_field_name}}_{{_Num}}">{{_field_title}}</label></td>
+ </tr>
+{{/TPL:Radio_Curr}}
+
+
+{{TPL:SelectID}}
+<select name="{{_field_name}}" id="{{_field_id}}"{{_misc}}>
+{{_}}
+</select>
+{{/TPL:SelectID}}
+
+{{TPL:SelectID_Item}}
+<option value="{{_field_value}}">{{_field_title}}</option>
+{{/TPL:SelectID_Item}}
+
+{{TPL:SelectID_Curr}}
+<option value="{{_field_value}}" selected="selected">{{_field_title}}</option>
+{{/TPL:SelectID_Curr}}
+
+{{TPL:SelectID_Empty}}
+{{/TPL:SelectID_Empty}}
+
+{{TPL:SelectID_Delim}} *** {{/TPL:SelectID_Delim}}

@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<script language="javascript" src="/afisha/kino/themes/default/js/custom.js"></script>
+<script language="javascript" src="/afisha/kino/themes/default/js/dom-drag.js"></script>
+<style type="text/css">
+        .root {
+                position:absolute;
+                height:20px;
+                width:120px;
+                background-color:#F4F4F4;
+                border:1px solid #333;
+              }
+
+      .handle {
+                align:left;
+                text-align: left;
+                margin:2px 2px 2px 2px;
+                padding:2px 2px 2px 2px;
+                width:70px;
+                height:18px;
+                color:white;
+                background-color:navy;
+                font-family:verdana, sans-serif;
+                font-size:10px;
+              }
+</style>
+</head>
+
+<body>
+<script language="javascript">
+    window.drEl = {};
+
+    function treeRefProc( title, id, mode ) {
+        getNode('procLegend').innerHTML = mode+'  Node';
+        getNode('addto_id').value   = id;
+        if (mode=='Edit') {
+          getNode('proc_mode').value = 'edit';
+          getNode('addwhat').value = title;
+          getNode('addto_name').value = '';
+          getNode('addto_name').disabled = 'disabled';
+          getNode('addto_id').setAttribute('readonly','readonly');
+        } else if (mode=='Add') {
+          getNode('proc_mode').value = 'add';
+          getNode('addwhat').value = '';
+          getNode('addto_name').value = title;
+          getNode('addto_name').removeAttribute('disabled');
+          getNode('addto_id').removeAttribute('readonly');
+        }
+    }
+
+
+    function treeAfterDrag( el ) {
+        var cfg = { 'tNodeW':50, 'tNodeH':15 }; // alert(' document.drEl :'+drEl );
+        var elId = parseInt(el.id.replace( ( new RegExp("root_") ), ''));
+        var aX = false;  // whether nodes' areas cross Element  alert( el +' *** ' + el.id+' *** '+elId );
+        for ( var i in window.drEl )  {
+            if (elId == i) continue; // unable to search into itself
+            var nX1 = window.drEl[i]['coordX'];      var nY1 = window.drEl[i]['coordY'];
+            var nX2 = nX1 + cfg['tNodeW'];           var nY2 = nY1 + cfg['tNodeH'];
+            var eX1 = window.drEl[elId]['coordX'];   var eY1 = window.drEl[elId]['coordY'];
+            var texpr = 'eX1 >= nX1 : ('+eX1+' >= '+nX1+') : '+(eX1 >= nX1)+'\n' +
+                        'eX1 <= nX2 : ('+eX1+' <= '+nX2+') : '+(eX1 <= nX2)+'\n' +
+                        'eY1 >= nY1 : ('+eY1+' => '+nY1+') : '+(eY1 >= nY1)+'\n' +
+                        'eY1 <= nY2 : ('+eY1+' <= '+nY2+') : '+(eY1 <= nY2)+'\n';
+            var expr = (eX1 >= nX1 && eX1 <= nX2  && eY1 >= nY1 && eY1 <= nY2) // alert(texpr+' :: ' + expr);
+            if ( eX1 >= nX1 && eX1 <= nX2  && eY1 >= nY1 && eY1 <= nY2 ) {  aX = i; break;  }
+        }
+        if (aX) window.location.href='http://'+window.location.hostname+window.location.pathname+'?itemId='+elId+'&bindTo='+aX;
+        else    window.location.href='http://'+window.location.hostname+window.location.pathname;
+    }
+
+</script>
+
+<!-- [<b> / </b>] <a href="javascript:;" onclick="tAddRef('[root]','0');">+</a> <br /> -->
+
+
+<b>drag the node and drop it into another one to move descendant subtree inside the tree!</b> <br />Drag'N'Drop Tree Traversal, v. 0.1 pre-alpha <br />&copy; Max Dolgov, 2006<br /><a href="{{thisURL}}">Start Again!</a>
+
+<hr />
+{{RuntimeOutput}}
+path to node #{{pathToNode}}
+<br />
+<form action="" method="get">
+  <fieldset style="width:40%;">
+  <input type="hidden" id="proc_mode" name="proc_mode" value=""/>
+  <legend><em id="procLegend"></em></legend>
+  tag:    <input id="addwhat" type="text" name="addwhat" value="" size="12"/>
+  parent: <input id="addto_name"   type="text" name="addto_name"   value="" size="12"/>
+         #<input id="addto_id"   type="text" name="addto_id"   value="" size="4" />
+          <input type="button" onclick="if(getNode('addwhat').value && getNode('addto_id').value) this.form.submit();" value="Process"/>
+  </fieldset>
+</form>
+<hr />
+
+<br />{{TreeBody}}
+
+</body>
+</html>
