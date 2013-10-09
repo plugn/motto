@@ -54,22 +54,22 @@ class ThemePlayTE {
   }
 
 /* ======================== RocketTE: ===================================*/
-  function Get( $key ) // -- �������� �������� (��������� ��� ������)
+  function Get( $key ) // -- получить значение (намеренно без ссылки)
   { return isset($this->domain[$key]) ? $this->domain[$key] : "" ; }
 
-  function Set( $key, $value=1 )  // -- ���������� �������� �����
+  function Set( $key, $value=1 )  // -- установить значение ключу
   { $this->domain[$key] = $value; }
 
-  function SetRef( $key, &$ref )  // -- ���������� �������� �������
+  function SetRef( $key, &$ref )  // -- установить значение ссылкой
   { $this->domain[$key] = &$ref; }
 
-  function Append( $key, $value ) // -- �������� � �����
+  function Append( $key, $value ) // -- дописать в конец
   { $this->domain[$key] .= $value; }
 
-  function Is( $key ) // -- true, ���� ���� ���� ���� ���-�� ������
+  function Is( $key ) // -- true, если этот ключ хоть что-то значил
   { return isset( $this->domain[$key] ); }
 
-  function Free( $key="", $_starred=false ) // -- ������� ������ ��� unset ����������
+  function Free( $key="", $_starred=false ) // -- очистка домена или unset переменной
   { if ($key === "") $this->domain = array();
     else if( is_array($key) )
     {
@@ -79,7 +79,7 @@ class ThemePlayTE {
     } else unset( $this->domain[$key] );
   }
 
-  function Load( $domain, $_starred=false ) // -- �������� ������� � �����
+  function Load( $domain, $_starred=false ) // -- загрузка массива в ключи
   {
     foreach($domain as $k=>$v) {
        $this->Set( $k, $v );
@@ -191,7 +191,7 @@ class ThemePlayTE {
     $content = preg_replace( '/'.$ptrn_if.'/ims',    ' <?php if ( $this->domain["\\2"] ) { ?> ', $content );
     // $this->guide->dbgMsg ( ' _Preparse() : ', $content , $pre=1, $htmlqt=0 );
 
-    // �������
+    // плагины
     $ptrn_plug =
               ( $this->cfg->tpl_tag_open.$this->cfg->tpl_plugin ).
                   '(.*)'.
@@ -206,14 +206,14 @@ class ThemePlayTE {
     $content = preg_replace('{'.$ptrn_inner.'}ims',
                   $this->cfg->tpl_tag_open.$this->cfg->tpl_include.":\\1".$this->cfg->tpl_tag_close, $content);
 
-    // �������. ������: {{@tplname.html:Mark}}; �������� ��������� �� �������� �����: {{@.:Mark}}, {{@:Mark}}
+    // инклюды. полный: {{@tplname.html:Mark}}; фрагмент темплэйта из текущего файла: {{@.:Mark}}, {{@:Mark}}
     $ptrn_inc =
               ( $this->cfg->tpl_tag_open.$this->cfg->tpl_include ).
                   '(.*?)'.
               ( $this->cfg->tpl_tag_close );
     $content = preg_replace( '{'.$ptrn_inc.'}e', "\$this->_Preparse(\$this->TplRead('\\1'));", $content );
 
-    // ����������
+    // переменные
     $content = str_replace($this->cfg->tpl_tag_open,  '<?php echo $this->domain["', $content );
     $content = str_replace($this->cfg->tpl_tag_close, '"];?>', $content );
     return $content;
@@ -243,14 +243,14 @@ class ThemePlayTE {
     // loop
     foreach ($data as $k=>$v) {
       $_mark = $this->cfg->loop_item; // '_Item'
-      if ($v[$this->cfg->loop_curr])  // �������� ������� - ��������� � data[�������]['_Curr'] = 1;
+      if ($v[$this->cfg->loop_curr])  // выделить текущий - добавляем в data[элемент]['_Curr'] = 1;
         $_mark = $this->cfg->loop_curr; // '_Curr'
       $_list[] = $this->ParseOne( $v, $tpf.$_mark );
     }
 
     // implode
     if ($implode)  $delim = $this->Parse($tpf.$this->cfg->loop_delim);
-    else           $delim = ''; // !!����������� �������� (��� xml.#PCDATA), ������ ���� ���, � ����� ����������!!
+    else           $delim = ''; // !!разделитель парсится (как xml.#PCDATA), притом один раз, и сразу кэшируется!!
 
     $this->Set('_', implode( $delim, $_list ));
     $r = $this->Parse($tpf, $store_to, $append);
